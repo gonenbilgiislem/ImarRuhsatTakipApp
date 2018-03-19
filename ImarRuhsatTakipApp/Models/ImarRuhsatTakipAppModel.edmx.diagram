@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="40d857a605a542539970492795f8686d" Name="Diagram1">
+        <EntityTypeShape EntityType="ImarRuhsatTakipAppDb2Model.Basvuru" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImarRuhsatTakipAppDb2Model.Basvuru_Turleri" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImarRuhsatTakipAppDb2Model.Durumlar" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImarRuhsatTakipAppDb2Model.Kullanicilar" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImarRuhsatTakipAppDb2Model.Muteahhit" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImarRuhsatTakipAppDb2Model.Sabitler" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImarRuhsatTakipAppDb2Model.Talep_Tipleri" Width="1.5" PointX="0.75" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImarRuhsatTakipAppDb2Model.Yapi_Denetim_Firmasi" Width="1.5" PointX="0.75" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImarRuhsatTakipAppDb2Model.Yetkiler" Width="1.5" PointX="6" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="ImarRuhsatTakipAppDb2Model.FK_Basvuru_Basvuru_Turleri" ManuallyRouted="false" />
+        <AssociationConnector Association="ImarRuhsatTakipAppDb2Model.FK_Basvuru_Durumlar" ManuallyRouted="false" />
+        <AssociationConnector Association="ImarRuhsatTakipAppDb2Model.FK_Basvuru_Kullanicilar" ManuallyRouted="false" />
+        <AssociationConnector Association="ImarRuhsatTakipAppDb2Model.FK_Basvuru_Muteahhit" ManuallyRouted="false" />
+        <AssociationConnector Association="ImarRuhsatTakipAppDb2Model.FK_Basvuru_Talep_Tipleri" ManuallyRouted="false" />
+        <AssociationConnector Association="ImarRuhsatTakipAppDb2Model.FK_Basvuru_Yapi_Denetim_Firmasi" ManuallyRouted="false" />
+        <AssociationConnector Association="ImarRuhsatTakipAppDb2Model.FK_Sabitler_Basvuru_Turleri" ManuallyRouted="false" />
+        <AssociationConnector Association="ImarRuhsatTakipAppDb2Model.FK_Yetkiler_Basvuru_Turleri" ManuallyRouted="false" />
+        <AssociationConnector Association="ImarRuhsatTakipAppDb2Model.FK_Yetkiler_Kullanicilar" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,42 @@
+﻿@model ImarRuhsatTakipApp.Models.Kullanicilar
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Kullanicilar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Kullanici_Ad_Soyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kullanici_Ad_Soyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sifre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sifre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Kullanici_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

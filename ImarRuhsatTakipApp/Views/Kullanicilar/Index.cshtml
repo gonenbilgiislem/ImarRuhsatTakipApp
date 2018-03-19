@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ImarRuhsatTakipApp.Models.Kullanicilar>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Kullanici_Ad_Soyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sifre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tc)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kullanici_Ad_Soyad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sifre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tc)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Kullanici_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Kullanici_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Kullanici_Id })
+        </td>
+    </tr>
+}
+
+</table>

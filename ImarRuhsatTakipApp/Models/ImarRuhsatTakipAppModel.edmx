@@ -1,0 +1,617 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ImarRuhsatTakipAppDb2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Basvuru">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Basvuru_Turleri_Id" Type="int" Nullable="false" />
+          <Property Name="Referans_kod" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Mal_Sahibi_Ad_Soyad" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="Yapi_Denetim_Firmasi_Id" Type="int" Nullable="false" />
+          <Property Name="Muteahhit_Id" Type="int" Nullable="false" />
+          <Property Name="Talep_Tipleri_Id" Type="int" Nullable="false" />
+          <Property Name="Durum_Id" Type="int" Nullable="false" />
+          <Property Name="Aciklama" Type="nchar" MaxLength="1000" />
+          <Property Name="Kullanicilar_Id" Type="int" Nullable="false" />
+          <Property Name="Dilekce_Tarihi" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Basvuru_Turleri">
+          <Key>
+            <PropertyRef Name="Basvuru_Tur_Id" />
+          </Key>
+          <Property Name="Basvuru_Tur_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Basvuru_Tur_Ad" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Durumlar">
+          <Key>
+            <PropertyRef Name="Durum_Id" />
+          </Key>
+          <Property Name="Durum_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Durum_Aciklama" Type="nchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kullanicilar">
+          <Key>
+            <PropertyRef Name="Kullanici_Id" />
+          </Key>
+          <Property Name="Kullanici_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kullanici_Ad_Soyad" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sifre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tc" Type="numeric" Precision="11" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Muteahhit">
+          <Key>
+            <PropertyRef Name="Mutheahhit_Id" />
+          </Key>
+          <Property Name="Mutheahhit_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Mutheahhit_Ad_Soyad" Type="nchar" MaxLength="100" />
+          <Property Name="Mutheahhit_Firma_Adi" Type="nchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sabitler">
+          <Key>
+            <PropertyRef Name="Sabitler_Id" />
+          </Key>
+          <Property Name="Sabitler_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sorular" Type="nchar" MaxLength="500" Nullable="false" />
+          <Property Name="Cevaplar" Type="nchar" MaxLength="500" Nullable="false" />
+          <Property Name="Basvuru_Turleri_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Talep_Tipleri">
+          <Key>
+            <PropertyRef Name="Talep_Tip_Id" />
+          </Key>
+          <Property Name="Talep_Tip_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Talep_Tip_Ad" Type="nchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Yapi_Denetim_Firmasi">
+          <Key>
+            <PropertyRef Name="Yapi_Denetim_Id" />
+          </Key>
+          <Property Name="Yapi_Denetim_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Yapi_Denetim_Adi" Type="nchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Yetkiler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kullanicilar_Id" Type="int" Nullable="false" />
+          <Property Name="Basvuru_Turleri_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Basvuru_Basvuru_Turleri">
+          <End Role="Basvuru_Turleri" Type="Self.Basvuru_Turleri" Multiplicity="1" />
+          <End Role="Basvuru" Type="Self.Basvuru" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Basvuru_Turleri">
+              <PropertyRef Name="Basvuru_Tur_Id" />
+            </Principal>
+            <Dependent Role="Basvuru">
+              <PropertyRef Name="Basvuru_Turleri_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Basvuru_Durumlar">
+          <End Role="Durumlar" Type="Self.Durumlar" Multiplicity="1" />
+          <End Role="Basvuru" Type="Self.Basvuru" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Durumlar">
+              <PropertyRef Name="Durum_Id" />
+            </Principal>
+            <Dependent Role="Basvuru">
+              <PropertyRef Name="Durum_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Basvuru_Kullanicilar">
+          <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="1" />
+          <End Role="Basvuru" Type="Self.Basvuru" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="Kullanici_Id" />
+            </Principal>
+            <Dependent Role="Basvuru">
+              <PropertyRef Name="Kullanicilar_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Basvuru_Muteahhit">
+          <End Role="Muteahhit" Type="Self.Muteahhit" Multiplicity="1" />
+          <End Role="Basvuru" Type="Self.Basvuru" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Muteahhit">
+              <PropertyRef Name="Mutheahhit_Id" />
+            </Principal>
+            <Dependent Role="Basvuru">
+              <PropertyRef Name="Muteahhit_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Basvuru_Talep_Tipleri">
+          <End Role="Talep_Tipleri" Type="Self.Talep_Tipleri" Multiplicity="1" />
+          <End Role="Basvuru" Type="Self.Basvuru" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Talep_Tipleri">
+              <PropertyRef Name="Talep_Tip_Id" />
+            </Principal>
+            <Dependent Role="Basvuru">
+              <PropertyRef Name="Talep_Tipleri_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Basvuru_Yapi_Denetim_Firmasi">
+          <End Role="Yapi_Denetim_Firmasi" Type="Self.Yapi_Denetim_Firmasi" Multiplicity="1" />
+          <End Role="Basvuru" Type="Self.Basvuru" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yapi_Denetim_Firmasi">
+              <PropertyRef Name="Yapi_Denetim_Id" />
+            </Principal>
+            <Dependent Role="Basvuru">
+              <PropertyRef Name="Yapi_Denetim_Firmasi_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sabitler_Basvuru_Turleri">
+          <End Role="Basvuru_Turleri" Type="Self.Basvuru_Turleri" Multiplicity="1" />
+          <End Role="Sabitler" Type="Self.Sabitler" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Basvuru_Turleri">
+              <PropertyRef Name="Basvuru_Tur_Id" />
+            </Principal>
+            <Dependent Role="Sabitler">
+              <PropertyRef Name="Sabitler_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Yetkiler_Basvuru_Turleri">
+          <End Role="Basvuru_Turleri" Type="Self.Basvuru_Turleri" Multiplicity="1" />
+          <End Role="Yetkiler" Type="Self.Yetkiler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Basvuru_Turleri">
+              <PropertyRef Name="Basvuru_Tur_Id" />
+            </Principal>
+            <Dependent Role="Yetkiler">
+              <PropertyRef Name="Basvuru_Turleri_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Yetkiler_Kullanicilar">
+          <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="1" />
+          <End Role="Yetkiler" Type="Self.Yetkiler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="Kullanici_Id" />
+            </Principal>
+            <Dependent Role="Yetkiler">
+              <PropertyRef Name="Kullanicilar_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ImarRuhsatTakipAppDb2ModelStoreContainer">
+          <EntitySet Name="Basvuru" EntityType="Self.Basvuru" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Basvuru_Turleri" EntityType="Self.Basvuru_Turleri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Durumlar" EntityType="Self.Durumlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Muteahhit" EntityType="Self.Muteahhit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sabitler" EntityType="Self.Sabitler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Talep_Tipleri" EntityType="Self.Talep_Tipleri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yapi_Denetim_Firmasi" EntityType="Self.Yapi_Denetim_Firmasi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yetkiler" EntityType="Self.Yetkiler" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Basvuru_Basvuru_Turleri" Association="Self.FK_Basvuru_Basvuru_Turleri">
+            <End Role="Basvuru_Turleri" EntitySet="Basvuru_Turleri" />
+            <End Role="Basvuru" EntitySet="Basvuru" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Basvuru_Durumlar" Association="Self.FK_Basvuru_Durumlar">
+            <End Role="Durumlar" EntitySet="Durumlar" />
+            <End Role="Basvuru" EntitySet="Basvuru" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Basvuru_Kullanicilar" Association="Self.FK_Basvuru_Kullanicilar">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="Basvuru" EntitySet="Basvuru" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Basvuru_Muteahhit" Association="Self.FK_Basvuru_Muteahhit">
+            <End Role="Muteahhit" EntitySet="Muteahhit" />
+            <End Role="Basvuru" EntitySet="Basvuru" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Basvuru_Talep_Tipleri" Association="Self.FK_Basvuru_Talep_Tipleri">
+            <End Role="Talep_Tipleri" EntitySet="Talep_Tipleri" />
+            <End Role="Basvuru" EntitySet="Basvuru" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Basvuru_Yapi_Denetim_Firmasi" Association="Self.FK_Basvuru_Yapi_Denetim_Firmasi">
+            <End Role="Yapi_Denetim_Firmasi" EntitySet="Yapi_Denetim_Firmasi" />
+            <End Role="Basvuru" EntitySet="Basvuru" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sabitler_Basvuru_Turleri" Association="Self.FK_Sabitler_Basvuru_Turleri">
+            <End Role="Basvuru_Turleri" EntitySet="Basvuru_Turleri" />
+            <End Role="Sabitler" EntitySet="Sabitler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Yetkiler_Basvuru_Turleri" Association="Self.FK_Yetkiler_Basvuru_Turleri">
+            <End Role="Basvuru_Turleri" EntitySet="Basvuru_Turleri" />
+            <End Role="Yetkiler" EntitySet="Yetkiler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Yetkiler_Kullanicilar" Association="Self.FK_Yetkiler_Kullanicilar">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="Yetkiler" EntitySet="Yetkiler" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ImarRuhsatTakipAppDb2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Basvuru">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Basvuru_Turleri_Id" Type="Int32" Nullable="false" />
+          <Property Name="Referans_kod" Type="Int64" Nullable="false" />
+          <Property Name="Mal_Sahibi_Ad_Soyad" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Yapi_Denetim_Firmasi_Id" Type="Int32" Nullable="false" />
+          <Property Name="Muteahhit_Id" Type="Int32" Nullable="false" />
+          <Property Name="Talep_Tipleri_Id" Type="Int32" Nullable="false" />
+          <Property Name="Durum_Id" Type="Int32" Nullable="false" />
+          <Property Name="Aciklama" Type="String" MaxLength="1000" FixedLength="true" Unicode="true" />
+          <Property Name="Kullanicilar_Id" Type="Int32" Nullable="false" />
+          <Property Name="Dilekce_Tarihi" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Basvuru_Turleri" Relationship="Self.FK_Basvuru_Basvuru_Turleri" FromRole="Basvuru" ToRole="Basvuru_Turleri" />
+          <NavigationProperty Name="Durumlar" Relationship="Self.FK_Basvuru_Durumlar" FromRole="Basvuru" ToRole="Durumlar" />
+          <NavigationProperty Name="Kullanicilar" Relationship="Self.FK_Basvuru_Kullanicilar" FromRole="Basvuru" ToRole="Kullanicilar" />
+          <NavigationProperty Name="Muteahhit" Relationship="Self.FK_Basvuru_Muteahhit" FromRole="Basvuru" ToRole="Muteahhit" />
+          <NavigationProperty Name="Talep_Tipleri" Relationship="Self.FK_Basvuru_Talep_Tipleri" FromRole="Basvuru" ToRole="Talep_Tipleri" />
+          <NavigationProperty Name="Yapi_Denetim_Firmasi" Relationship="Self.FK_Basvuru_Yapi_Denetim_Firmasi" FromRole="Basvuru" ToRole="Yapi_Denetim_Firmasi" />
+        </EntityType>
+        <EntityType Name="Basvuru_Turleri">
+          <Key>
+            <PropertyRef Name="Basvuru_Tur_Id" />
+          </Key>
+          <Property Name="Basvuru_Tur_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Basvuru_Tur_Ad" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Basvuru" Relationship="Self.FK_Basvuru_Basvuru_Turleri" FromRole="Basvuru_Turleri" ToRole="Basvuru" />
+          <NavigationProperty Name="Sabitler" Relationship="Self.FK_Sabitler_Basvuru_Turleri" FromRole="Basvuru_Turleri" ToRole="Sabitler" />
+          <NavigationProperty Name="Yetkiler" Relationship="Self.FK_Yetkiler_Basvuru_Turleri" FromRole="Basvuru_Turleri" ToRole="Yetkiler" />
+        </EntityType>
+        <EntityType Name="Durumlar">
+          <Key>
+            <PropertyRef Name="Durum_Id" />
+          </Key>
+          <Property Name="Durum_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Durum_Aciklama" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Basvuru" Relationship="Self.FK_Basvuru_Durumlar" FromRole="Durumlar" ToRole="Basvuru" />
+        </EntityType>
+        <EntityType Name="Kullanicilar">
+          <Key>
+            <PropertyRef Name="Kullanici_Id" />
+          </Key>
+          <Property Name="Kullanici_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kullanici_Ad_Soyad" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tc" Type="Int64" Nullable="false" >
+            <Documentation>
+              <LongDescription>sssss</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Basvuru" Relationship="Self.FK_Basvuru_Kullanicilar" FromRole="Kullanicilar" ToRole="Basvuru" />
+          <NavigationProperty Name="Yetkiler" Relationship="Self.FK_Yetkiler_Kullanicilar" FromRole="Kullanicilar" ToRole="Yetkiler" />
+        </EntityType>
+        <EntityType Name="Muteahhit">
+          <Key>
+            <PropertyRef Name="Mutheahhit_Id" />
+          </Key>
+          <Property Name="Mutheahhit_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Mutheahhit_Ad_Soyad" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Mutheahhit_Firma_Adi" Type="String" MaxLength="500" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Basvuru" Relationship="Self.FK_Basvuru_Muteahhit" FromRole="Muteahhit" ToRole="Basvuru" />
+        </EntityType>
+        <EntityType Name="Sabitler">
+          <Key>
+            <PropertyRef Name="Sabitler_Id" />
+          </Key>
+          <Property Name="Sabitler_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sorular" Type="String" MaxLength="500" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Cevaplar" Type="String" MaxLength="500" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Basvuru_Turleri_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Basvuru_Turleri" Relationship="Self.FK_Sabitler_Basvuru_Turleri" FromRole="Sabitler" ToRole="Basvuru_Turleri" />
+        </EntityType>
+        <EntityType Name="Talep_Tipleri">
+          <Key>
+            <PropertyRef Name="Talep_Tip_Id" />
+          </Key>
+          <Property Name="Talep_Tip_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Talep_Tip_Ad" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Basvuru" Relationship="Self.FK_Basvuru_Talep_Tipleri" FromRole="Talep_Tipleri" ToRole="Basvuru" />
+        </EntityType>
+        <EntityType Name="Yapi_Denetim_Firmasi">
+          <Key>
+            <PropertyRef Name="Yapi_Denetim_Id" />
+          </Key>
+          <Property Name="Yapi_Denetim_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Yapi_Denetim_Adi" Type="String" MaxLength="500" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Basvuru" Relationship="Self.FK_Basvuru_Yapi_Denetim_Firmasi" FromRole="Yapi_Denetim_Firmasi" ToRole="Basvuru" />
+        </EntityType>
+        <EntityType Name="Yetkiler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kullanicilar_Id" Type="Int32" Nullable="false" />
+          <Property Name="Basvuru_Turleri_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Basvuru_Turleri" Relationship="Self.FK_Yetkiler_Basvuru_Turleri" FromRole="Yetkiler" ToRole="Basvuru_Turleri" />
+          <NavigationProperty Name="Kullanicilar" Relationship="Self.FK_Yetkiler_Kullanicilar" FromRole="Yetkiler" ToRole="Kullanicilar" />
+        </EntityType>
+        <Association Name="FK_Basvuru_Basvuru_Turleri">
+          <End Role="Basvuru_Turleri" Type="Self.Basvuru_Turleri" Multiplicity="1" />
+          <End Role="Basvuru" Type="Self.Basvuru" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Basvuru_Turleri">
+              <PropertyRef Name="Basvuru_Tur_Id" />
+            </Principal>
+            <Dependent Role="Basvuru">
+              <PropertyRef Name="Basvuru_Turleri_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Basvuru_Durumlar">
+          <End Role="Durumlar" Type="Self.Durumlar" Multiplicity="1" />
+          <End Role="Basvuru" Type="Self.Basvuru" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Durumlar">
+              <PropertyRef Name="Durum_Id" />
+            </Principal>
+            <Dependent Role="Basvuru">
+              <PropertyRef Name="Durum_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Basvuru_Kullanicilar">
+          <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="1" />
+          <End Role="Basvuru" Type="Self.Basvuru" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="Kullanici_Id" />
+            </Principal>
+            <Dependent Role="Basvuru">
+              <PropertyRef Name="Kullanicilar_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Basvuru_Muteahhit">
+          <End Role="Muteahhit" Type="Self.Muteahhit" Multiplicity="1" />
+          <End Role="Basvuru" Type="Self.Basvuru" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Muteahhit">
+              <PropertyRef Name="Mutheahhit_Id" />
+            </Principal>
+            <Dependent Role="Basvuru">
+              <PropertyRef Name="Muteahhit_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Basvuru_Talep_Tipleri">
+          <End Role="Talep_Tipleri" Type="Self.Talep_Tipleri" Multiplicity="1" />
+          <End Role="Basvuru" Type="Self.Basvuru" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Talep_Tipleri">
+              <PropertyRef Name="Talep_Tip_Id" />
+            </Principal>
+            <Dependent Role="Basvuru">
+              <PropertyRef Name="Talep_Tipleri_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Basvuru_Yapi_Denetim_Firmasi">
+          <End Role="Yapi_Denetim_Firmasi" Type="Self.Yapi_Denetim_Firmasi" Multiplicity="1" />
+          <End Role="Basvuru" Type="Self.Basvuru" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yapi_Denetim_Firmasi">
+              <PropertyRef Name="Yapi_Denetim_Id" />
+            </Principal>
+            <Dependent Role="Basvuru">
+              <PropertyRef Name="Yapi_Denetim_Firmasi_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sabitler_Basvuru_Turleri">
+          <End Role="Basvuru_Turleri" Type="Self.Basvuru_Turleri" Multiplicity="1" />
+          <End Role="Sabitler" Type="Self.Sabitler" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Basvuru_Turleri">
+              <PropertyRef Name="Basvuru_Tur_Id" />
+            </Principal>
+            <Dependent Role="Sabitler">
+              <PropertyRef Name="Sabitler_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Yetkiler_Basvuru_Turleri">
+          <End Role="Basvuru_Turleri" Type="Self.Basvuru_Turleri" Multiplicity="1" />
+          <End Role="Yetkiler" Type="Self.Yetkiler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Basvuru_Turleri">
+              <PropertyRef Name="Basvuru_Tur_Id" />
+            </Principal>
+            <Dependent Role="Yetkiler">
+              <PropertyRef Name="Basvuru_Turleri_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Yetkiler_Kullanicilar">
+          <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="1" />
+          <End Role="Yetkiler" Type="Self.Yetkiler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="Kullanici_Id" />
+            </Principal>
+            <Dependent Role="Yetkiler">
+              <PropertyRef Name="Kullanicilar_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ImarRuhsatTakipAppDb2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Basvuru" EntityType="Self.Basvuru" />
+          <EntitySet Name="Basvuru_Turleri" EntityType="Self.Basvuru_Turleri" />
+          <EntitySet Name="Durumlar" EntityType="Self.Durumlar" />
+          <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" />
+          <EntitySet Name="Muteahhit" EntityType="Self.Muteahhit" />
+          <EntitySet Name="Sabitler" EntityType="Self.Sabitler" />
+          <EntitySet Name="Talep_Tipleri" EntityType="Self.Talep_Tipleri" />
+          <EntitySet Name="Yapi_Denetim_Firmasi" EntityType="Self.Yapi_Denetim_Firmasi" />
+          <EntitySet Name="Yetkiler" EntityType="Self.Yetkiler" />
+          <AssociationSet Name="FK_Basvuru_Basvuru_Turleri" Association="Self.FK_Basvuru_Basvuru_Turleri">
+            <End Role="Basvuru_Turleri" EntitySet="Basvuru_Turleri" />
+            <End Role="Basvuru" EntitySet="Basvuru" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Basvuru_Durumlar" Association="Self.FK_Basvuru_Durumlar">
+            <End Role="Durumlar" EntitySet="Durumlar" />
+            <End Role="Basvuru" EntitySet="Basvuru" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Basvuru_Kullanicilar" Association="Self.FK_Basvuru_Kullanicilar">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="Basvuru" EntitySet="Basvuru" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Basvuru_Muteahhit" Association="Self.FK_Basvuru_Muteahhit">
+            <End Role="Muteahhit" EntitySet="Muteahhit" />
+            <End Role="Basvuru" EntitySet="Basvuru" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Basvuru_Talep_Tipleri" Association="Self.FK_Basvuru_Talep_Tipleri">
+            <End Role="Talep_Tipleri" EntitySet="Talep_Tipleri" />
+            <End Role="Basvuru" EntitySet="Basvuru" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Basvuru_Yapi_Denetim_Firmasi" Association="Self.FK_Basvuru_Yapi_Denetim_Firmasi">
+            <End Role="Yapi_Denetim_Firmasi" EntitySet="Yapi_Denetim_Firmasi" />
+            <End Role="Basvuru" EntitySet="Basvuru" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sabitler_Basvuru_Turleri" Association="Self.FK_Sabitler_Basvuru_Turleri">
+            <End Role="Basvuru_Turleri" EntitySet="Basvuru_Turleri" />
+            <End Role="Sabitler" EntitySet="Sabitler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Yetkiler_Basvuru_Turleri" Association="Self.FK_Yetkiler_Basvuru_Turleri">
+            <End Role="Basvuru_Turleri" EntitySet="Basvuru_Turleri" />
+            <End Role="Yetkiler" EntitySet="Yetkiler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Yetkiler_Kullanicilar" Association="Self.FK_Yetkiler_Kullanicilar">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="Yetkiler" EntitySet="Yetkiler" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ImarRuhsatTakipAppDb2ModelStoreContainer" CdmEntityContainer="ImarRuhsatTakipAppDb2Entities">
+          <EntitySetMapping Name="Basvuru">
+            <EntityTypeMapping TypeName="ImarRuhsatTakipAppDb2Model.Basvuru">
+              <MappingFragment StoreEntitySet="Basvuru">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Basvuru_Turleri_Id" ColumnName="Basvuru_Turleri_Id" />
+                <ScalarProperty Name="Referans_kod" ColumnName="Referans_kod" />
+                <ScalarProperty Name="Mal_Sahibi_Ad_Soyad" ColumnName="Mal_Sahibi_Ad_Soyad" />
+                <ScalarProperty Name="Yapi_Denetim_Firmasi_Id" ColumnName="Yapi_Denetim_Firmasi_Id" />
+                <ScalarProperty Name="Muteahhit_Id" ColumnName="Muteahhit_Id" />
+                <ScalarProperty Name="Talep_Tipleri_Id" ColumnName="Talep_Tipleri_Id" />
+                <ScalarProperty Name="Durum_Id" ColumnName="Durum_Id" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Kullanicilar_Id" ColumnName="Kullanicilar_Id" />
+                <ScalarProperty Name="Dilekce_Tarihi" ColumnName="Dilekce_Tarihi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Basvuru_Turleri">
+            <EntityTypeMapping TypeName="ImarRuhsatTakipAppDb2Model.Basvuru_Turleri">
+              <MappingFragment StoreEntitySet="Basvuru_Turleri">
+                <ScalarProperty Name="Basvuru_Tur_Id" ColumnName="Basvuru_Tur_Id" />
+                <ScalarProperty Name="Basvuru_Tur_Ad" ColumnName="Basvuru_Tur_Ad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Durumlar">
+            <EntityTypeMapping TypeName="ImarRuhsatTakipAppDb2Model.Durumlar">
+              <MappingFragment StoreEntitySet="Durumlar">
+                <ScalarProperty Name="Durum_Id" ColumnName="Durum_Id" />
+                <ScalarProperty Name="Durum_Aciklama" ColumnName="Durum_Aciklama" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanicilar">
+            <EntityTypeMapping TypeName="ImarRuhsatTakipAppDb2Model.Kullanicilar">
+              <MappingFragment StoreEntitySet="Kullanicilar">
+                <ScalarProperty Name="Kullanici_Id" ColumnName="Kullanici_Id" />
+                <ScalarProperty Name="Kullanici_Ad_Soyad" ColumnName="Kullanici_Ad_Soyad" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="Tc" ColumnName="Tc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Muteahhit">
+            <EntityTypeMapping TypeName="ImarRuhsatTakipAppDb2Model.Muteahhit">
+              <MappingFragment StoreEntitySet="Muteahhit">
+                <ScalarProperty Name="Mutheahhit_Id" ColumnName="Mutheahhit_Id" />
+                <ScalarProperty Name="Mutheahhit_Ad_Soyad" ColumnName="Mutheahhit_Ad_Soyad" />
+                <ScalarProperty Name="Mutheahhit_Firma_Adi" ColumnName="Mutheahhit_Firma_Adi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sabitler">
+            <EntityTypeMapping TypeName="ImarRuhsatTakipAppDb2Model.Sabitler">
+              <MappingFragment StoreEntitySet="Sabitler">
+                <ScalarProperty Name="Sabitler_Id" ColumnName="Sabitler_Id" />
+                <ScalarProperty Name="Sorular" ColumnName="Sorular" />
+                <ScalarProperty Name="Cevaplar" ColumnName="Cevaplar" />
+                <ScalarProperty Name="Basvuru_Turleri_Id" ColumnName="Basvuru_Turleri_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Talep_Tipleri">
+            <EntityTypeMapping TypeName="ImarRuhsatTakipAppDb2Model.Talep_Tipleri">
+              <MappingFragment StoreEntitySet="Talep_Tipleri">
+                <ScalarProperty Name="Talep_Tip_Id" ColumnName="Talep_Tip_Id" />
+                <ScalarProperty Name="Talep_Tip_Ad" ColumnName="Talep_Tip_Ad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yapi_Denetim_Firmasi">
+            <EntityTypeMapping TypeName="ImarRuhsatTakipAppDb2Model.Yapi_Denetim_Firmasi">
+              <MappingFragment StoreEntitySet="Yapi_Denetim_Firmasi">
+                <ScalarProperty Name="Yapi_Denetim_Id" ColumnName="Yapi_Denetim_Id" />
+                <ScalarProperty Name="Yapi_Denetim_Adi" ColumnName="Yapi_Denetim_Adi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yetkiler">
+            <EntityTypeMapping TypeName="ImarRuhsatTakipAppDb2Model.Yetkiler">
+              <MappingFragment StoreEntitySet="Yetkiler">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Kullanicilar_Id" ColumnName="Kullanicilar_Id" />
+                <ScalarProperty Name="Basvuru_Turleri_Id" ColumnName="Basvuru_Turleri_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
