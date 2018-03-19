@@ -10,113 +10,120 @@ using ImarRuhsatTakipApp.Models;
 
 namespace ImarRuhsatTakipApp.Controllers
 {
-    public class KullanicilarController : Controller
+    public class YetkilerController : Controller
     {
         private ImarRuhsatTakipAppDb2Entities db = new ImarRuhsatTakipAppDb2Entities();
 
-        // GET: Kullanicilar
+        // GET: Yetkiler
         public ActionResult Index()
         {
-            return View(db.Kullanicilar.ToList());
+            var yetkiler = db.Yetkiler.Include(y => y.Basvuru_Turleri).Include(y => y.Kullanicilar);
+            return View(yetkiler.ToList());
         }
 
-        // GET: Kullanicilar/Details/5
+        // GET: Yetkiler/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kullanicilar kullanicilar = db.Kullanicilar.Find(id);
-            if (kullanicilar == null)
+            Yetkiler yetkiler = db.Yetkiler.Find(id);
+            if (yetkiler == null)
             {
                 return HttpNotFound();
             }
-            return View(kullanicilar);
+            return View(yetkiler);
         }
 
-        // GET: Kullanicilar/Create
+        // GET: Yetkiler/Create
         public ActionResult Create()
         {
+            ViewBag.Basvuru_Turleri_Id = new SelectList(db.Basvuru_Turleri, "Basvuru_Tur_Id", "Basvuru_Tur_Ad");
+            ViewBag.Kullanicilar_Id = new SelectList(db.Kullanicilar, "Kullanici_Id", "Kullanici_Ad_Soyad");
             return View();
         }
 
-        // POST: Kullanicilar/Create
+        // POST: Yetkiler/Create
         // Aşırı gönderim saldırılarından korunmak için, lütfen bağlamak istediğiniz belirli özellikleri etkinleştirin, 
         // daha fazla bilgi için https://go.microsoft.com/fwlink/?LinkId=317598 sayfasına bakın.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Kullanici_Id,Kullanici_Ad_Soyad,Sifre,Tc")] Kullanicilar kullanicilar)
+        public ActionResult Create([Bind(Include = "Id,Kullanicilar_Id,Basvuru_Turleri_Id")] Yetkiler yetkiler)
         {
             if (ModelState.IsValid)
             {
-                db.Kullanicilar.Add(kullanicilar);
+                db.Yetkiler.Add(yetkiler);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(kullanicilar);
+            ViewBag.Basvuru_Turleri_Id = new SelectList(db.Basvuru_Turleri, "Basvuru_Tur_Id", "Basvuru_Tur_Ad", yetkiler.Basvuru_Turleri_Id);
+            ViewBag.Kullanicilar_Id = new SelectList(db.Kullanicilar, "Kullanici_Id", "Kullanici_Ad_Soyad", yetkiler.Kullanicilar_Id);
+            return View(yetkiler);
         }
 
-        // GET: Kullanicilar/Edit/5
+        // GET: Yetkiler/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kullanicilar kullanicilar = db.Kullanicilar.Find(id);
-            if (kullanicilar == null)
+            Yetkiler yetkiler = db.Yetkiler.Find(id);
+            if (yetkiler == null)
             {
                 return HttpNotFound();
             }
-            return View(kullanicilar);
+            ViewBag.Basvuru_Turleri_Id = new SelectList(db.Basvuru_Turleri, "Basvuru_Tur_Id", "Basvuru_Tur_Ad", yetkiler.Basvuru_Turleri_Id);
+            ViewBag.Kullanicilar_Id = new SelectList(db.Kullanicilar, "Kullanici_Id", "Kullanici_Ad_Soyad", yetkiler.Kullanicilar_Id);
+            return View(yetkiler);
         }
 
-        // POST: Kullanicilar/Edit/5
+        // POST: Yetkiler/Edit/5
         // Aşırı gönderim saldırılarından korunmak için, lütfen bağlamak istediğiniz belirli özellikleri etkinleştirin, 
         // daha fazla bilgi için https://go.microsoft.com/fwlink/?LinkId=317598 sayfasına bakın.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Kullanici_Id,Kullanici_Ad_Soyad,Sifre,Tc")] Kullanicilar kullanicilar)
+        public ActionResult Edit([Bind(Include = "Id,Kullanicilar_Id,Basvuru_Turleri_Id")] Yetkiler yetkiler)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(kullanicilar).State = EntityState.Modified;
+                db.Entry(yetkiler).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(kullanicilar);
+            ViewBag.Basvuru_Turleri_Id = new SelectList(db.Basvuru_Turleri, "Basvuru_Tur_Id", "Basvuru_Tur_Ad", yetkiler.Basvuru_Turleri_Id);
+            ViewBag.Kullanicilar_Id = new SelectList(db.Kullanicilar, "Kullanici_Id", "Kullanici_Ad_Soyad", yetkiler.Kullanicilar_Id);
+            return View(yetkiler);
         }
 
-        // GET: Kullanicilar/Delete/5
+        // GET: Yetkiler/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kullanicilar kullanicilar = db.Kullanicilar.Find(id);
-            if (kullanicilar == null)
+            Yetkiler yetkiler = db.Yetkiler.Find(id);
+            if (yetkiler == null)
             {
                 return HttpNotFound();
             }
-            return View(kullanicilar);
+            return View(yetkiler);
         }
 
-        // POST: Kullanicilar/Delete/5
+        // POST: Yetkiler/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
-     
-    
-	{	        
-		 Kullanicilar kullanicilar = db.Kullanicilar.Find(id);
-        db.Kullanicilar.Remove(kullanicilar);
+        {
+            Yetkiler yetkiler = db.Yetkiler.Find(id);
+            db.Yetkiler.Remove(yetkiler);
             db.SaveChanges();
             return RedirectToAction("Index");
-    }
-	
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

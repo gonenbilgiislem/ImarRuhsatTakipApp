@@ -1,0 +1,34 @@
+﻿@model ImarRuhsatTakipApp.Models.Basvuru_Turleri
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Basvuru_Turleri</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Basvuru_Tur_Ad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Basvuru_Tur_Ad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sabitler.Sorular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sabitler.Sorular)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Basvuru_Tur_Id }) |
+    @Html.ActionLink("Geri Dön", "Index")
+</p>

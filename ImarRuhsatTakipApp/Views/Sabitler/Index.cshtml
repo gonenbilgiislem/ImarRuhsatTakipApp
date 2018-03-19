@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ImarRuhsatTakipApp.Models.Sabitler>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sorular)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cevaplar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Basvuru_Turleri_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Basvuru_Turleri.Basvuru_Tur_Ad)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sorular)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cevaplar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Basvuru_Turleri_Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Basvuru_Turleri.Basvuru_Tur_Ad)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Sabitler_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Sabitler_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Sabitler_Id })
+        </td>
+    </tr>
+}
+
+</table>

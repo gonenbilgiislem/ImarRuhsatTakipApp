@@ -11,22 +11,27 @@ namespace ImarRuhsatTakipApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
     public partial class Basvuru_Turleri
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Basvuru_Turleri()
         {
             this.Basvuru = new HashSet<Basvuru>();
+            this.Sabitler = new HashSet<Sabitler>();
             this.Yetkiler = new HashSet<Yetkiler>();
         }
     
-        public int Basvuru_Tur_Id { get; set; }
+        public int Id { get; set; }
+
+        [Required]
+        [Display(Name = "Baþvuru Türü")]
         public string Basvuru_Tur_Ad { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Basvuru> Basvuru { get; set; }
-        public virtual Sabitler Sabitler { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Sabitler> Sabitler { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Yetkiler> Yetkiler { get; set; }
     }

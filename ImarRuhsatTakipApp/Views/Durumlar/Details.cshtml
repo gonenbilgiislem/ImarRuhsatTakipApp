@@ -1,0 +1,26 @@
+﻿@model ImarRuhsatTakipApp.Models.Durumlar
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Durumlar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Durum_Aciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Durum_Aciklama)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Durum_Id }) |
+    @Html.ActionLink("Geri Dön", "Index")
+</p>

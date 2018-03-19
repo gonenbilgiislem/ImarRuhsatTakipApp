@@ -1,4 +1,4 @@
-﻿@model ImarRuhsatTakipApp.Models.Kullanicilar
+﻿@model ImarRuhsatTakipApp.Models.Basvuru_Turleri
 
 @{
     ViewBag.Title = "Delete";
@@ -8,31 +8,23 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Kullanicilar</h4>
+    <h4>Basvuru_Turleri</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Kullanici_Ad_Soyad)
+            @Html.DisplayNameFor(model => model.Basvuru_Tur_Ad)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Kullanici_Ad_Soyad)
+            @Html.DisplayFor(model => model.Basvuru_Tur_Ad)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Sifre)
+            @Html.DisplayNameFor(model => model.Sabitler.Sorular)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Sifre)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Tc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tc)
+            @Html.DisplayFor(model => model.Sabitler.Sorular)
         </dd>
 
     </dl>

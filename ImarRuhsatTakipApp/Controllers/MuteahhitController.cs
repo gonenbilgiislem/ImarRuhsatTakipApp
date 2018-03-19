@@ -10,113 +10,111 @@ using ImarRuhsatTakipApp.Models;
 
 namespace ImarRuhsatTakipApp.Controllers
 {
-    public class KullanicilarController : Controller
+    public class MuteahhitController : Controller
     {
         private ImarRuhsatTakipAppDb2Entities db = new ImarRuhsatTakipAppDb2Entities();
 
-        // GET: Kullanicilar
+        // GET: Muteahhit
         public ActionResult Index()
         {
-            return View(db.Kullanicilar.ToList());
+            return View(db.Muteahhit.ToList());
         }
 
-        // GET: Kullanicilar/Details/5
+        // GET: Muteahhit/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kullanicilar kullanicilar = db.Kullanicilar.Find(id);
-            if (kullanicilar == null)
+            Muteahhit muteahhit = db.Muteahhit.Find(id);
+            if (muteahhit == null)
             {
                 return HttpNotFound();
             }
-            return View(kullanicilar);
+            return View(muteahhit);
         }
 
-        // GET: Kullanicilar/Create
+        // GET: Muteahhit/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Kullanicilar/Create
+        // POST: Muteahhit/Create
         // Aşırı gönderim saldırılarından korunmak için, lütfen bağlamak istediğiniz belirli özellikleri etkinleştirin, 
         // daha fazla bilgi için https://go.microsoft.com/fwlink/?LinkId=317598 sayfasına bakın.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Kullanici_Id,Kullanici_Ad_Soyad,Sifre,Tc")] Kullanicilar kullanicilar)
+        public ActionResult Create([Bind(Include = "Mutheahhit_Id,Mutheahhit_Ad_Soyad,Mutheahhit_Firma_Adi")] Muteahhit muteahhit)
         {
             if (ModelState.IsValid)
             {
-                db.Kullanicilar.Add(kullanicilar);
+                db.Muteahhit.Add(muteahhit);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(kullanicilar);
+            return View(muteahhit);
         }
 
-        // GET: Kullanicilar/Edit/5
+        // GET: Muteahhit/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kullanicilar kullanicilar = db.Kullanicilar.Find(id);
-            if (kullanicilar == null)
+            Muteahhit muteahhit = db.Muteahhit.Find(id);
+            if (muteahhit == null)
             {
                 return HttpNotFound();
             }
-            return View(kullanicilar);
+            return View(muteahhit);
         }
 
-        // POST: Kullanicilar/Edit/5
+        // POST: Muteahhit/Edit/5
         // Aşırı gönderim saldırılarından korunmak için, lütfen bağlamak istediğiniz belirli özellikleri etkinleştirin, 
         // daha fazla bilgi için https://go.microsoft.com/fwlink/?LinkId=317598 sayfasına bakın.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Kullanici_Id,Kullanici_Ad_Soyad,Sifre,Tc")] Kullanicilar kullanicilar)
+        public ActionResult Edit([Bind(Include = "Mutheahhit_Id,Mutheahhit_Ad_Soyad,Mutheahhit_Firma_Adi")] Muteahhit muteahhit)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(kullanicilar).State = EntityState.Modified;
+                db.Entry(muteahhit).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(kullanicilar);
+            return View(muteahhit);
         }
 
-        // GET: Kullanicilar/Delete/5
+        // GET: Muteahhit/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kullanicilar kullanicilar = db.Kullanicilar.Find(id);
-            if (kullanicilar == null)
+            Muteahhit muteahhit = db.Muteahhit.Find(id);
+            if (muteahhit == null)
             {
                 return HttpNotFound();
             }
-            return View(kullanicilar);
+            return View(muteahhit);
         }
 
-        // POST: Kullanicilar/Delete/5
+        // POST: Muteahhit/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
-     
-    
-	{	        
-		 Kullanicilar kullanicilar = db.Kullanicilar.Find(id);
-        db.Kullanicilar.Remove(kullanicilar);
+        {
+            Muteahhit muteahhit = db.Muteahhit.Find(id);
+            db.Muteahhit.Remove(muteahhit);
             db.SaveChanges();
             return RedirectToAction("Index");
-    }
-	
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

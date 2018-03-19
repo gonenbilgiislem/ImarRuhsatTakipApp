@@ -20,7 +20,7 @@ namespace ImarRuhsatTakipApp.Models
             this.Basvuru = new HashSet<Basvuru>();
         }
     
-        public int Yapi_Denetim_Id { get; set; }
+        public int Id { get; set; }
         public string Yapi_Denetim_Adi { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

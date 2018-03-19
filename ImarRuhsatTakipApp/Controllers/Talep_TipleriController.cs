@@ -10,113 +10,111 @@ using ImarRuhsatTakipApp.Models;
 
 namespace ImarRuhsatTakipApp.Controllers
 {
-    public class KullanicilarController : Controller
+    public class Talep_TipleriController : Controller
     {
         private ImarRuhsatTakipAppDb2Entities db = new ImarRuhsatTakipAppDb2Entities();
 
-        // GET: Kullanicilar
+        // GET: Talep_Tipleri
         public ActionResult Index()
         {
-            return View(db.Kullanicilar.ToList());
+            return View(db.Talep_Tipleri.ToList());
         }
 
-        // GET: Kullanicilar/Details/5
+        // GET: Talep_Tipleri/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kullanicilar kullanicilar = db.Kullanicilar.Find(id);
-            if (kullanicilar == null)
+            Talep_Tipleri talep_Tipleri = db.Talep_Tipleri.Find(id);
+            if (talep_Tipleri == null)
             {
                 return HttpNotFound();
             }
-            return View(kullanicilar);
+            return View(talep_Tipleri);
         }
 
-        // GET: Kullanicilar/Create
+        // GET: Talep_Tipleri/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Kullanicilar/Create
+        // POST: Talep_Tipleri/Create
         // Aşırı gönderim saldırılarından korunmak için, lütfen bağlamak istediğiniz belirli özellikleri etkinleştirin, 
         // daha fazla bilgi için https://go.microsoft.com/fwlink/?LinkId=317598 sayfasına bakın.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Kullanici_Id,Kullanici_Ad_Soyad,Sifre,Tc")] Kullanicilar kullanicilar)
+        public ActionResult Create([Bind(Include = "Talep_Tip_Id,Talep_Tip_Ad")] Talep_Tipleri talep_Tipleri)
         {
             if (ModelState.IsValid)
             {
-                db.Kullanicilar.Add(kullanicilar);
+                db.Talep_Tipleri.Add(talep_Tipleri);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(kullanicilar);
+            return View(talep_Tipleri);
         }
 
-        // GET: Kullanicilar/Edit/5
+        // GET: Talep_Tipleri/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kullanicilar kullanicilar = db.Kullanicilar.Find(id);
-            if (kullanicilar == null)
+            Talep_Tipleri talep_Tipleri = db.Talep_Tipleri.Find(id);
+            if (talep_Tipleri == null)
             {
                 return HttpNotFound();
             }
-            return View(kullanicilar);
+            return View(talep_Tipleri);
         }
 
-        // POST: Kullanicilar/Edit/5
+        // POST: Talep_Tipleri/Edit/5
         // Aşırı gönderim saldırılarından korunmak için, lütfen bağlamak istediğiniz belirli özellikleri etkinleştirin, 
         // daha fazla bilgi için https://go.microsoft.com/fwlink/?LinkId=317598 sayfasına bakın.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Kullanici_Id,Kullanici_Ad_Soyad,Sifre,Tc")] Kullanicilar kullanicilar)
+        public ActionResult Edit([Bind(Include = "Talep_Tip_Id,Talep_Tip_Ad")] Talep_Tipleri talep_Tipleri)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(kullanicilar).State = EntityState.Modified;
+                db.Entry(talep_Tipleri).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(kullanicilar);
+            return View(talep_Tipleri);
         }
 
-        // GET: Kullanicilar/Delete/5
+        // GET: Talep_Tipleri/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kullanicilar kullanicilar = db.Kullanicilar.Find(id);
-            if (kullanicilar == null)
+            Talep_Tipleri talep_Tipleri = db.Talep_Tipleri.Find(id);
+            if (talep_Tipleri == null)
             {
                 return HttpNotFound();
             }
-            return View(kullanicilar);
+            return View(talep_Tipleri);
         }
 
-        // POST: Kullanicilar/Delete/5
+        // POST: Talep_Tipleri/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
-     
-    
-	{	        
-		 Kullanicilar kullanicilar = db.Kullanicilar.Find(id);
-        db.Kullanicilar.Remove(kullanicilar);
+        {
+            Talep_Tipleri talep_Tipleri = db.Talep_Tipleri.Find(id);
+            db.Talep_Tipleri.Remove(talep_Tipleri);
             db.SaveChanges();
             return RedirectToAction("Index");
-    }
-	
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

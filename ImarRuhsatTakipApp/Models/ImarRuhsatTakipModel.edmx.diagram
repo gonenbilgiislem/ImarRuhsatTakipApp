@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="40d857a605a542539970492795f8686d" Name="Diagram1">
+      <Diagram DiagramId="b576ea48c5844e73a567a8c5de49b419" Name="Diagram1">
         <EntityTypeShape EntityType="ImarRuhsatTakipAppDb2Model.Basvuru" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="ImarRuhsatTakipAppDb2Model.Basvuru_Turleri" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ImarRuhsatTakipAppDb2Model.Durumlar" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />

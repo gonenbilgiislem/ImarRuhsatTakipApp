@@ -11,6 +11,7 @@ namespace ImarRuhsatTakipApp.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Kullanicilar
     {
@@ -21,10 +22,15 @@ namespace ImarRuhsatTakipApp.Models
             this.Yetkiler = new HashSet<Yetkiler>();
         }
     
-        public int Kullanici_Id { get; set; }
+        public int Id { get; set; }
+        [Required]
+        [Display(Name ="Ad Soyad")]
         public string Kullanici_Ad_Soyad { get; set; }
+        [Required]
+        [Display(Name ="Þifre")]
         public string Sifre { get; set; }
-        public long Tc { get; set; }
+        [Display(Name ="TC No")]
+        public Nullable<decimal> Tc { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Basvuru> Basvuru { get; set; }

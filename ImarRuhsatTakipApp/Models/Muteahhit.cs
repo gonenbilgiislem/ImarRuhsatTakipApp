@@ -20,7 +20,7 @@ namespace ImarRuhsatTakipApp.Models
             this.Basvuru = new HashSet<Basvuru>();
         }
     
-        public int Mutheahhit_Id { get; set; }
+        public int Id { get; set; }
         public string Mutheahhit_Ad_Soyad { get; set; }
         public string Mutheahhit_Firma_Adi { get; set; }
     

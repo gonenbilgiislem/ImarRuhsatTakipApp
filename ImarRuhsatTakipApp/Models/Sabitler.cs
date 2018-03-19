@@ -14,7 +14,7 @@ namespace ImarRuhsatTakipApp.Models
     
     public partial class Sabitler
     {
-        public int Sabitler_Id { get; set; }
+        public int Id { get; set; }
         public string Sorular { get; set; }
         public string Cevaplar { get; set; }
         public int Basvuru_Turleri_Id { get; set; }

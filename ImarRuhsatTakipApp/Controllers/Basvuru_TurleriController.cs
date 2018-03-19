@@ -10,113 +10,116 @@ using ImarRuhsatTakipApp.Models;
 
 namespace ImarRuhsatTakipApp.Controllers
 {
-    public class KullanicilarController : Controller
+    public class Basvuru_TurleriController : Controller
     {
         private ImarRuhsatTakipAppDb2Entities db = new ImarRuhsatTakipAppDb2Entities();
 
-        // GET: Kullanicilar
+        // GET: Basvuru_Turleri
         public ActionResult Index()
         {
-            return View(db.Kullanicilar.ToList());
+            var basvuru_Turleri = db.Basvuru_Turleri.Include(b => b.Sabitler);
+            return View(basvuru_Turleri.ToList());
         }
 
-        // GET: Kullanicilar/Details/5
+        // GET: Basvuru_Turleri/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kullanicilar kullanicilar = db.Kullanicilar.Find(id);
-            if (kullanicilar == null)
+            Basvuru_Turleri basvuru_Turleri = db.Basvuru_Turleri.Find(id);
+            if (basvuru_Turleri == null)
             {
                 return HttpNotFound();
             }
-            return View(kullanicilar);
+            return View(basvuru_Turleri);
         }
 
-        // GET: Kullanicilar/Create
+        // GET: Basvuru_Turleri/Create
         public ActionResult Create()
         {
+            ViewBag.Basvuru_Tur_Id = new SelectList(db.Sabitler, "Sabitler_Id", "Sorular");
             return View();
         }
 
-        // POST: Kullanicilar/Create
+        // POST: Basvuru_Turleri/Create
         // Aşırı gönderim saldırılarından korunmak için, lütfen bağlamak istediğiniz belirli özellikleri etkinleştirin, 
         // daha fazla bilgi için https://go.microsoft.com/fwlink/?LinkId=317598 sayfasına bakın.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Kullanici_Id,Kullanici_Ad_Soyad,Sifre,Tc")] Kullanicilar kullanicilar)
+        public ActionResult Create([Bind(Include = "Basvuru_Tur_Id,Basvuru_Tur_Ad")] Basvuru_Turleri basvuru_Turleri)
         {
             if (ModelState.IsValid)
             {
-                db.Kullanicilar.Add(kullanicilar);
+                db.Basvuru_Turleri.Add(basvuru_Turleri);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(kullanicilar);
+            ViewBag.Basvuru_Tur_Id = new SelectList(db.Sabitler, "Sabitler_Id", "Sorular", basvuru_Turleri.Id);
+            return View(basvuru_Turleri);
         }
 
-        // GET: Kullanicilar/Edit/5
+        // GET: Basvuru_Turleri/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kullanicilar kullanicilar = db.Kullanicilar.Find(id);
-            if (kullanicilar == null)
+            Basvuru_Turleri basvuru_Turleri = db.Basvuru_Turleri.Find(id);
+            if (basvuru_Turleri == null)
             {
                 return HttpNotFound();
             }
-            return View(kullanicilar);
+            ViewBag.Basvuru_Tur_Id = new SelectList(db.Sabitler, "Sabitler_Id", "Sorular", basvuru_Turleri.Id);
+            return View(basvuru_Turleri);
         }
 
-        // POST: Kullanicilar/Edit/5
+        // POST: Basvuru_Turleri/Edit/5
         // Aşırı gönderim saldırılarından korunmak için, lütfen bağlamak istediğiniz belirli özellikleri etkinleştirin, 
         // daha fazla bilgi için https://go.microsoft.com/fwlink/?LinkId=317598 sayfasına bakın.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Kullanici_Id,Kullanici_Ad_Soyad,Sifre,Tc")] Kullanicilar kullanicilar)
+        public ActionResult Edit([Bind(Include = "Basvuru_Tur_Id,Basvuru_Tur_Ad")] Basvuru_Turleri basvuru_Turleri)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(kullanicilar).State = EntityState.Modified;
+                db.Entry(basvuru_Turleri).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(kullanicilar);
+            ViewBag.Basvuru_Tur_Id = new SelectList(db.Sabitler, "Sabitler_Id", "Sorular", basvuru_Turleri.Id);
+            return View(basvuru_Turleri);
         }
 
-        // GET: Kullanicilar/Delete/5
+        // GET: Basvuru_Turleri/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kullanicilar kullanicilar = db.Kullanicilar.Find(id);
-            if (kullanicilar == null)
+            Basvuru_Turleri basvuru_Turleri = db.Basvuru_Turleri.Find(id);
+            if (basvuru_Turleri == null)
             {
                 return HttpNotFound();
             }
-            return View(kullanicilar);
+            return View(basvuru_Turleri);
         }
 
-        // POST: Kullanicilar/Delete/5
+        // POST: Basvuru_Turleri/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
-     
-    
-	{	        
-		 Kullanicilar kullanicilar = db.Kullanicilar.Find(id);
-        db.Kullanicilar.Remove(kullanicilar);
+        {
+            Basvuru_Turleri basvuru_Turleri = db.Basvuru_Turleri.Find(id);
+            db.Basvuru_Turleri.Remove(basvuru_Turleri);
             db.SaveChanges();
             return RedirectToAction("Index");
-    }
-	
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

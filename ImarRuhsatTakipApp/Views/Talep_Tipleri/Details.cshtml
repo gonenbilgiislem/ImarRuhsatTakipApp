@@ -1,0 +1,26 @@
+﻿@model ImarRuhsatTakipApp.Models.Talep_Tipleri
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Talep_Tipleri</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Talep_Tip_Ad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Talep_Tip_Ad)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Talep_Tip_Id }) |
+    @Html.ActionLink("Geri Dön", "Index")
+</p>

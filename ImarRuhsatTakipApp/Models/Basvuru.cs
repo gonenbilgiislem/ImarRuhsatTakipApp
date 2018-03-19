@@ -11,26 +11,66 @@ namespace ImarRuhsatTakipApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Basvuru
     {
         public int Id { get; set; }
+
+        [Required]
+        [Display(Name ="Baþvuru Türü")]
         public int Basvuru_Turleri_Id { get; set; }
-        public long Referans_kod { get; set; }
+
+        [Required]
+        [Display(Name = "EBYS Referans Kodu")]
+        public decimal Referans_kod { get; set; }
+
+        [Required]
+        [Display(Name = "Mal Adý Soyadý")]
         public string Mal_Sahibi_Ad_Soyad { get; set; }
+
+        [Required]
+        [Display(Name = "Yapý Denetim Firmasý")]
         public int Yapi_Denetim_Firmasi_Id { get; set; }
+
+        [Required]
+        [Display(Name = "Müteahhit Firmasý")]
         public int Muteahhit_Id { get; set; }
+
+        [Required]
+        [Display(Name = "Talep Edilen Belge")]
         public int Talep_Tipleri_Id { get; set; }
+
+        [Required]
+        [Display(Name = "Baþvuru Durumu")]
         public int Durum_Id { get; set; }
+
+        [Required]
+        [Display(Name = "Açýklama")]
         public string Aciklama { get; set; }
+
+
         public int Kullanicilar_Id { get; set; }
+
+        [Display(Name="Date of Birth")]
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> Dilekce_Tarihi { get; set; }
     
         public virtual Basvuru_Turleri Basvuru_Turleri { get; set; }
+
+
         public virtual Durumlar Durumlar { get; set; }
+
+
         public virtual Kullanicilar Kullanicilar { get; set; }
+
+
         public virtual Muteahhit Muteahhit { get; set; }
+
+
         public virtual Talep_Tipleri Talep_Tipleri { get; set; }
+
+
         public virtual Yapi_Denetim_Firmasi Yapi_Denetim_Firmasi { get; set; }
     }
 }

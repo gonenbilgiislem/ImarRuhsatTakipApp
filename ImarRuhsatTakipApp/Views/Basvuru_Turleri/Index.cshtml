@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ImarRuhsatTakipApp.Models.Basvuru_Turleri>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Basvuru_Tur_Ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sabitler.Sorular)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Basvuru_Tur_Ad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sabitler.Sorular)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Basvuru_Tur_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Basvuru_Tur_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Basvuru_Tur_Id })
+        </td>
+    </tr>
+}
+
+</table>

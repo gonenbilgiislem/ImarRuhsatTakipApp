@@ -150,52 +150,60 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BasvuruController.cs" />
+    <Compile Include="Controllers\Basvuru_TurleriController.cs" />
+    <Compile Include="Controllers\DurumlarController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KullanicilarController.cs" />
+    <Compile Include="Controllers\MuteahhitController.cs" />
+    <Compile Include="Controllers\SabitlerController.cs" />
+    <Compile Include="Controllers\Talep_TipleriController.cs" />
+    <Compile Include="Controllers\Yapi_Denetim_FirmasiController.cs" />
+    <Compile Include="Controllers\YetkilerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Basvuru.cs">
-      <DependentUpon>ImarRuhsatTakipAppModel.tt</DependentUpon>
+      <DependentUpon>ImarRuhsatTakipModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Basvuru_Turleri.cs">
-      <DependentUpon>ImarRuhsatTakipAppModel.tt</DependentUpon>
+      <DependentUpon>ImarRuhsatTakipModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Durumlar.cs">
-      <DependentUpon>ImarRuhsatTakipAppModel.tt</DependentUpon>
+      <DependentUpon>ImarRuhsatTakipModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ImarRuhsatTakipAppModel.Context.cs">
+    <Compile Include="Models\ImarRuhsatTakipModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ImarRuhsatTakipAppModel.Context.tt</DependentUpon>
+      <DependentUpon>ImarRuhsatTakipModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ImarRuhsatTakipAppModel.cs">
+    <Compile Include="Models\ImarRuhsatTakipModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ImarRuhsatTakipAppModel.tt</DependentUpon>
+      <DependentUpon>ImarRuhsatTakipModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ImarRuhsatTakipAppModel.Designer.cs">
+    <Compile Include="Models\ImarRuhsatTakipModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ImarRuhsatTakipAppModel.edmx</DependentUpon>
+      <DependentUpon>ImarRuhsatTakipModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Kullanicilar.cs">
-      <DependentUpon>ImarRuhsatTakipAppModel.tt</DependentUpon>
+      <DependentUpon>ImarRuhsatTakipModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Muteahhit.cs">
-      <DependentUpon>ImarRuhsatTakipAppModel.tt</DependentUpon>
+      <DependentUpon>ImarRuhsatTakipModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Sabitler.cs">
-      <DependentUpon>ImarRuhsatTakipAppModel.tt</DependentUpon>
+      <DependentUpon>ImarRuhsatTakipModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Talep_Tipleri.cs">
-      <DependentUpon>ImarRuhsatTakipAppModel.tt</DependentUpon>
+      <DependentUpon>ImarRuhsatTakipModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Yapi_Denetim_Firmasi.cs">
-      <DependentUpon>ImarRuhsatTakipAppModel.tt</DependentUpon>
+      <DependentUpon>ImarRuhsatTakipModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Yetkiler.cs">
-      <DependentUpon>ImarRuhsatTakipAppModel.tt</DependentUpon>
+      <DependentUpon>ImarRuhsatTakipModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -222,27 +230,27 @@
     <Content Include="images\bg-input-focus.png" />
     <Content Include="images\bg-input.png" />
     <Content Include="images\sprite.png" />
-    <Content Include="Models\ImarRuhsatTakipAppModel.Context.tt">
+    <Content Include="Models\ImarRuhsatTakipModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ImarRuhsatTakipAppModel.Context.cs</LastGenOutput>
-      <DependentUpon>ImarRuhsatTakipAppModel.edmx</DependentUpon>
+      <DependentUpon>ImarRuhsatTakipModel.edmx</DependentUpon>
+      <LastGenOutput>ImarRuhsatTakipModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\ImarRuhsatTakipAppModel.tt">
+    <Content Include="Models\ImarRuhsatTakipModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ImarRuhsatTakipAppModel.edmx</DependentUpon>
-      <LastGenOutput>ImarRuhsatTakipAppModel.cs</LastGenOutput>
+      <DependentUpon>ImarRuhsatTakipModel.edmx</DependentUpon>
+      <LastGenOutput>ImarRuhsatTakipModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\ImarRuhsatTakipAppModel.edmx">
+    <EntityDeploy Include="Models\ImarRuhsatTakipModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ImarRuhsatTakipAppModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>ImarRuhsatTakipModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\ImarRuhsatTakipAppModel.edmx.diagram">
-      <DependentUpon>ImarRuhsatTakipAppModel.edmx</DependentUpon>
+    <Content Include="Models\ImarRuhsatTakipModel.edmx.diagram">
+      <DependentUpon>ImarRuhsatTakipModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -1442,6 +1450,46 @@
     <Content Include="Views\Kullanicilar\Details.cshtml" />
     <Content Include="Views\Kullanicilar\Edit.cshtml" />
     <Content Include="Views\Kullanicilar\Index.cshtml" />
+    <Content Include="Views\Basvuru_Turleri\Create.cshtml" />
+    <Content Include="Views\Basvuru_Turleri\Delete.cshtml" />
+    <Content Include="Views\Basvuru_Turleri\Details.cshtml" />
+    <Content Include="Views\Basvuru_Turleri\Edit.cshtml" />
+    <Content Include="Views\Basvuru_Turleri\Index.cshtml" />
+    <Content Include="Views\Yapi_Denetim_Firmasi\Create.cshtml" />
+    <Content Include="Views\Yapi_Denetim_Firmasi\Delete.cshtml" />
+    <Content Include="Views\Yapi_Denetim_Firmasi\Details.cshtml" />
+    <Content Include="Views\Yapi_Denetim_Firmasi\Edit.cshtml" />
+    <Content Include="Views\Yapi_Denetim_Firmasi\Index.cshtml" />
+    <Content Include="Views\Muteahhit\Create.cshtml" />
+    <Content Include="Views\Muteahhit\Delete.cshtml" />
+    <Content Include="Views\Muteahhit\Details.cshtml" />
+    <Content Include="Views\Muteahhit\Edit.cshtml" />
+    <Content Include="Views\Muteahhit\Index.cshtml" />
+    <Content Include="Views\Talep_Tipleri\Create.cshtml" />
+    <Content Include="Views\Talep_Tipleri\Delete.cshtml" />
+    <Content Include="Views\Talep_Tipleri\Details.cshtml" />
+    <Content Include="Views\Talep_Tipleri\Edit.cshtml" />
+    <Content Include="Views\Talep_Tipleri\Index.cshtml" />
+    <Content Include="Views\Durumlar\Create.cshtml" />
+    <Content Include="Views\Durumlar\Delete.cshtml" />
+    <Content Include="Views\Durumlar\Details.cshtml" />
+    <Content Include="Views\Durumlar\Edit.cshtml" />
+    <Content Include="Views\Durumlar\Index.cshtml" />
+    <Content Include="Views\Yetkiler\Create.cshtml" />
+    <Content Include="Views\Yetkiler\Delete.cshtml" />
+    <Content Include="Views\Yetkiler\Details.cshtml" />
+    <Content Include="Views\Yetkiler\Edit.cshtml" />
+    <Content Include="Views\Yetkiler\Index.cshtml" />
+    <Content Include="Views\Sabitler\Create.cshtml" />
+    <Content Include="Views\Sabitler\Delete.cshtml" />
+    <Content Include="Views\Sabitler\Details.cshtml" />
+    <Content Include="Views\Sabitler\Edit.cshtml" />
+    <Content Include="Views\Sabitler\Index.cshtml" />
+    <Content Include="Views\Basvuru\Create.cshtml" />
+    <Content Include="Views\Basvuru\Delete.cshtml" />
+    <Content Include="Views\Basvuru\Details.cshtml" />
+    <Content Include="Views\Basvuru\Edit.cshtml" />
+    <Content Include="Views\Basvuru\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

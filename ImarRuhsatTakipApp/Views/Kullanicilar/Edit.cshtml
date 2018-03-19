@@ -14,7 +14,7 @@
         <h4>Kullanicilar</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Kullanici_Id)
+        @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Kullanici_Ad_Soyad, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -49,5 +49,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Geri Dön", "Index")
 </div>
