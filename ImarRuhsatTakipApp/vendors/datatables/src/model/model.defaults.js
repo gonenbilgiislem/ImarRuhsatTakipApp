@@ -1658,7 +1658,7 @@ DataTable.defaults = {
 		 *      } );
 		 *    } );
 		 */
-		"sSearch": "Search:",
+		"sSearch": "Ara:",
 	
 	
 		/**

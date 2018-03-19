@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using ImarRuhsatTakipApp.Models;
 
+
 namespace ImarRuhsatTakipApp.Controllers
 {
     public class KullanicilarController : Controller
@@ -108,16 +109,24 @@ namespace ImarRuhsatTakipApp.Controllers
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
-     
-    
+        { 
+    try
 	{	        
 		 Kullanicilar kullanicilar = db.Kullanicilar.Find(id);
-        db.Kullanicilar.Remove(kullanicilar);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+         db.Kullanicilar.Remove(kullanicilar);
+         db.SaveChanges();
+            
     }
-	
-        protected override void Dispose(bool disposing)
+	catch (Exception dex)
+    {
+     TempData["FK_Basvuru_Kullanicilar"] = dex.Message;
+    }
+
+    return RedirectToAction("Index");
+         }
+
+
+protected override void Dispose(bool disposing)
         {
             if (disposing)
             {

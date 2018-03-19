@@ -190,9 +190,11 @@
     <Compile Include="Models\Kullanicilar.cs">
       <DependentUpon>ImarRuhsatTakipModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Metadata.cs" />
     <Compile Include="Models\Muteahhit.cs">
       <DependentUpon>ImarRuhsatTakipModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PartialClasses.cs" />
     <Compile Include="Models\Sabitler.cs">
       <DependentUpon>ImarRuhsatTakipModel.tt</DependentUpon>
     </Compile>

@@ -12,7 +12,7 @@ $(document).ready( function () {
 	oTest.fnWaitTest( 
 		"Search language is 'Search:' by default",
 		null,
-		function () { return oSettings.oLanguage.sSearch == "Search:"; }
+		function () { return oSettings.oLanguage.sSearch == "Ara:"; }
 	);
 	
 	oTest.fnTest(
@@ -25,7 +25,7 @@ $(document).ready( function () {
 		"Search language default is in the DOM",
 		null,
 		function () { return $('label', oSettings.aanFeatures.f[0]).text()
-		 	== "Search: "; }
+		 	== "BBBB: "; }
 	);
 	
 	
