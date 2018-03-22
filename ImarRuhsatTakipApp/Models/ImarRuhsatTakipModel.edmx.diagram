@@ -5,15 +5,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="b576ea48c5844e73a567a8c5de49b419" Name="Diagram1">
-        <EntityTypeShape EntityType="ImarRuhsatTakipAppDb2Model.Basvuru" Width="1.5" PointX="3.25" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ImarRuhsatTakipAppDb2Model.Basvuru_Turleri" Width="1.5" PointX="1" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImarRuhsatTakipAppDb2Model.Basvuru" Width="1.5" PointX="12.125" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImarRuhsatTakipAppDb2Model.Basvuru_Turleri" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ImarRuhsatTakipAppDb2Model.Durumlar" Width="1.5" PointX="1" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ImarRuhsatTakipAppDb2Model.Kullanicilar" Width="1.5" PointX="1" PointY="11" IsExpanded="true" />
         <EntityTypeShape EntityType="ImarRuhsatTakipAppDb2Model.Muteahhit" Width="1.5" PointX="1" PointY="13.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ImarRuhsatTakipAppDb2Model.Sabitler" Width="1.5" PointX="3.25" PointY="10.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ImarRuhsatTakipAppDb2Model.Talep_Tipleri" Width="1.5" PointX="1" PointY="16.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ImarRuhsatTakipAppDb2Model.Yapi_Denetim_Firmasi" Width="1.5" PointX="1" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ImarRuhsatTakipAppDb2Model.Yetkiler" Width="1.5" PointX="6.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImarRuhsatTakipAppDb2Model.Yetkiler" Width="1.5" PointX="2" PointY="4.875" IsExpanded="true" />
         <AssociationConnector Association="ImarRuhsatTakipAppDb2Model.FK_Basvuru_Basvuru_Turleri" ManuallyRouted="false" />
         <AssociationConnector Association="ImarRuhsatTakipAppDb2Model.FK_Basvuru_Durumlar" ManuallyRouted="false" />
         <AssociationConnector Association="ImarRuhsatTakipAppDb2Model.FK_Basvuru_Kullanicilar" ManuallyRouted="false" />

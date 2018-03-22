@@ -26,22 +26,14 @@
         <dd>
             @Html.DisplayFor(model => model.Sifre)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Tc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tc)
-        </dd>
-
+              
     </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
             @Html.ActionLink("Geri Dön", "Index")
         </div>
     }

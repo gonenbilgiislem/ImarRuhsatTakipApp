@@ -41,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.Basvuru_Turleri.Basvuru_Tur_Ad)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Sabitler_Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Sabitler_Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Sabitler_Id })
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.Sabitler_Id }) |
+            @Html.ActionLink("Ayrıntılar", "Details", new { id=item.Sabitler_Id }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.Sabitler_Id })
         </td>
     </tr>
 }
