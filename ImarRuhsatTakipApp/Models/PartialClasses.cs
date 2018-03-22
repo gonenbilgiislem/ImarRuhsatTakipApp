@@ -9,4 +9,9 @@ namespace ImarRuhsatTakipApp.Models
     public partial class Kullanicilar
     {
     }
+
+    [MetadataType(typeof(MuteahhitMetadata))]
+    public partial class Muteahhit
+    {
+    }
 }
