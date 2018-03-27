@@ -14,4 +14,9 @@ namespace ImarRuhsatTakipApp.Models
     public partial class Muteahhit
     {
     }
+
+    [MetadataType(typeof(BasvuruMetadata))]
+    public partial class Basvuru
+    {
+    }
 }

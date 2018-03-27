@@ -34,11 +34,6 @@
                                 @Html.DisplayNameFor(model => model.Kullanici_Ad_Soyad)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.Sifre)
-                            </th>
-                           
-                            <th>
-                               
                             </th>
                         </tr>
                     </thead>
@@ -51,13 +46,9 @@
                             @Html.DisplayFor(modelItem => item.Kullanici_Ad_Soyad)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Sifre)
-                        </td>
-                      
-                        <td>
-                            @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }) |
-                            @Html.ActionLink("Ayrıntılar", "Details", new { id = item.Id }) |
-                            @Html.ActionLink("Sil", "Delete", new { id = item.Id })
+                            <a href="@Url.Action("Edit","Kullanicilar",new {id = item.Id })" button class="btn btn-info btn-lg"> <i class="glyphicon glyphicon-pencil"></i>Düzenle</a>
+                            
+                            <a href="@Url.Action("Delete","Kullanicilar",new {id = item.Id })" button class="btn btn-danger btn-lg"> <i class="glyphicon glyphicon-pencil"></i>Sil</a>
                         </td>
                     </tr>
 }

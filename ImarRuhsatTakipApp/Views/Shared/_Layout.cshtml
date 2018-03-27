@@ -4,16 +4,16 @@
 <head>
     <title>@ViewBag.Title</title>
     <!-- Bootstrap -->
-    <link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="~/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-    <link href="~/assets/styles.css" rel="stylesheet" media="screen">
-    <link href="~/assets/DT_bootstrap.css" rel="stylesheet" media="screen">
+    <link href="~/Icerik/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="~/Icerik/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    <link href="~/Icerik/assets/styles.css" rel="stylesheet" media="screen">
+    <link href="~/Icerik/assets/DT_bootstrap.css" rel="stylesheet" media="screen">
     <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="vendors/flot/excanvas.min.js"></script><![endif]-->
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script src="~/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
 </head>
 
 <body>
@@ -167,7 +167,7 @@
                     <li>
                         <a href="@Url.Action("Index","Sabitler")">Soru-Cevap Girişi</a>
                     </li>
-                   
+
                 </ul>
             </div>
             <!--/span-->
@@ -181,14 +181,14 @@
         </footer>
     </div>
     <!--/.fluid-container-->
-    <script src="~/vendors/jquery-1.9.1.js"></script>
-    <script src="~/bootstrap/js/bootstrap.min.js"></script>
-    <script src="~/vendors/datatables/js/jquery.dataTables.js"></script>
-
-    <script src="~/assets/scripts.js"></script>
-    <script src="~/assets/DT_bootstrap.js"></script>
+    <script src="~/Icerik/vendors/jquery-1.9.1.js"></script>
+    <script src="~/Icerik/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Icerik/vendors/datatables/js/jquery.dataTables.js"></script>
+    <script src="~/Icerik/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="~/Icerik/assets/scripts.js"></script>
+    <script src="~/Icerik/assets/DT_bootstrap.js"></script>
     <script>
-$(function () {
+        $(function () {
 
         });</script>
     @RenderSection("scripts", required: false)
