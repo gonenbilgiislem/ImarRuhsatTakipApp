@@ -47,7 +47,7 @@ namespace ImarRuhsatTakipApp.Controllers
         // daha fazla bilgi için https://go.microsoft.com/fwlink/?LinkId=317598 sayfasına bakın.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Kullanici_Id,Kullanici_Ad_Soyad,Sifre,Tc")] Kullanicilar kullanicilar)
+        public ActionResult Create([Bind(Include = "Id,Kullanici_Ad_Soyad,Sifre,Tc")] Kullanicilar kullanicilar)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace ImarRuhsatTakipApp.Controllers
         // daha fazla bilgi için https://go.microsoft.com/fwlink/?LinkId=317598 sayfasına bakın.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Kullanici_Id,Kullanici_Ad_Soyad,Sifre,Tc")] Kullanicilar kullanicilar)
+        public ActionResult Edit([Bind(Include = "Id,Kullanici_Ad_Soyad,Sifre,Tc")] Kullanicilar kullanicilar)
         {
             if (ModelState.IsValid)
             {
@@ -119,8 +119,8 @@ namespace ImarRuhsatTakipApp.Controllers
     }
 	catch (Exception dex)
     {
-     TempData["FK_Basvuru_Kullanicilar"] = dex.Message;
-    }
+                TempData["FK_Basvuru_Kullanicilar"] = dex.Message;
+            }
 
     return RedirectToAction("Index");
          }

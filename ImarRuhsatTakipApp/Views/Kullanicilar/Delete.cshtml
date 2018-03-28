@@ -4,12 +4,7 @@
     ViewBag.Title = "Kullanıcı Sil";
 }
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
 
-
-}
 <div class="row-fluid">
     <!-- block -->
     <div class="block">
@@ -45,18 +40,23 @@
                         </tr>
                     </tbody>
                 </table>
-                        
-                <div class="form-actions no-color">
-                    <input type="submit" value="Sil" class="btn btn-danger" />
+                @using (Html.BeginForm())
+    {
+            @Html.AntiForgeryToken()
 
 
-                </div>
-                
-                
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Sil" button class="btn btn-danger" />
+
+
+            </div>
+}
+
                 <div>
-                            <a href="@Url.Action("Index","Kullanicilar")" button class="btn btn-success"> <i class="icon-hand-left icon-white"></i> Geri Dön</a>
-                       </div>
-                        
+                    <a href="@Url.Action("Index","Kullanicilar")" button class="btn btn-success"> <i class="icon-hand-left icon-white"></i> Geri Dön</a>
+                </div>
+
             </div>
         </div>
     </div>

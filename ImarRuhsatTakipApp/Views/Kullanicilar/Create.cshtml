@@ -48,10 +48,14 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="form-group">
+                    <div class="">
                         <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Ekle" class="btn btn-default" />
+                            <input type="submit" value="Kaydet" button class="btn btn-success" />
                         </div>
+                        <div>
+                            <a href="@Url.Action("Index","Kullanicilar")" button class="btn btn-info"> <i class="icon-hand-left icon-white"></i> Geri Dön</a>
+                        </div>
+
                     </div>
 
                 }
@@ -59,7 +63,4 @@
             </div>
         </div>
     </div>
-</div>
-<div>
-    <a href="@Url.Action("Index","Kullanicilar")" button class="btn btn-success"> <i class="icon-hand-left icon-white"></i> Geri Dön</a>
 </div>
