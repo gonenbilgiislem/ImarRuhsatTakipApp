@@ -39,8 +39,8 @@ namespace ImarRuhsatTakipApp.Controllers
         // GET: Yetkiler/Create
         public ActionResult Create()
         {
-            ViewBag.Basvuru_Turleri_Id = new SelectList(db.Basvuru_Turleri, "Basvuru_Tur_Id", "Basvuru_Tur_Ad");
-            ViewBag.Kullanicilar_Id = new SelectList(db.Kullanicilar, "Kullanici_Id", "Kullanici_Ad_Soyad");
+            ViewBag.Basvuru_Turleri_Id = new SelectList(db.Basvuru_Turleri, "Id", "Basvuru_Tur_Ad");
+            ViewBag.Kullanicilar_Id = new SelectList(db.Kullanicilar, "Id", "Kullanici_Ad_Soyad");
             return View();
         }
 
@@ -58,8 +58,8 @@ namespace ImarRuhsatTakipApp.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Basvuru_Turleri_Id = new SelectList(db.Basvuru_Turleri, "Basvuru_Tur_Id", "Basvuru_Tur_Ad", yetkiler.Basvuru_Turleri_Id);
-            ViewBag.Kullanicilar_Id = new SelectList(db.Kullanicilar, "Kullanici_Id", "Kullanici_Ad_Soyad", yetkiler.Kullanicilar_Id);
+            ViewBag.Basvuru_Turleri_Id = new SelectList(db.Basvuru_Turleri, "Id", "Basvuru_Tur_Ad", yetkiler.Basvuru_Turleri_Id);
+            ViewBag.Kullanicilar_Id = new SelectList(db.Kullanicilar, "Id", "Kullanici_Ad_Soyad", yetkiler.Kullanicilar_Id);
             return View(yetkiler);
         }
 
@@ -75,8 +75,8 @@ namespace ImarRuhsatTakipApp.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Basvuru_Turleri_Id = new SelectList(db.Basvuru_Turleri, "Basvuru_Tur_Id", "Basvuru_Tur_Ad", yetkiler.Basvuru_Turleri_Id);
-            ViewBag.Kullanicilar_Id = new SelectList(db.Kullanicilar, "Kullanici_Id", "Kullanici_Ad_Soyad", yetkiler.Kullanicilar_Id);
+            ViewBag.Basvuru_Turleri_Id = new SelectList(db.Basvuru_Turleri, "Id", "Basvuru_Tur_Ad", yetkiler.Basvuru_Turleri_Id);
+            ViewBag.Kullanicilar_Id = new SelectList(db.Kullanicilar, "Id", "Kullanici_Ad_Soyad", yetkiler.Kullanicilar_Id);
             return View(yetkiler);
         }
 
@@ -93,8 +93,8 @@ namespace ImarRuhsatTakipApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Basvuru_Turleri_Id = new SelectList(db.Basvuru_Turleri, "Basvuru_Tur_Id", "Basvuru_Tur_Ad", yetkiler.Basvuru_Turleri_Id);
-            ViewBag.Kullanicilar_Id = new SelectList(db.Kullanicilar, "Kullanici_Id", "Kullanici_Ad_Soyad", yetkiler.Kullanicilar_Id);
+            ViewBag.Basvuru_Turleri_Id = new SelectList(db.Basvuru_Turleri, "Id", "Basvuru_Tur_Ad", yetkiler.Basvuru_Turleri_Id);
+            ViewBag.Kullanicilar_Id = new SelectList(db.Kullanicilar, "Id", "Kullanici_Ad_Soyad", yetkiler.Kullanicilar_Id);
             return View(yetkiler);
         }
 

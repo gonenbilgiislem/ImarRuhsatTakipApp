@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Edit</h2>
@@ -15,7 +16,7 @@
         <h4>Muteahhit</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Mutheahhit_Id)
+        @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Mutheahhit_Ad_Soyad, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -42,7 +43,7 @@
 }
 
 <div>
-    @Html.ActionLink("Geri Dön", "Index")
+    @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {

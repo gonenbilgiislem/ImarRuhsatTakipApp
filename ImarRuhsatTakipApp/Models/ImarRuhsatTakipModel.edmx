@@ -247,7 +247,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Basvuru_Turleri_Id" Type="Int32" Nullable="false" />
-          <Property Name="Referans_kod" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Referans_kod" Type="Int64" Nullable="false" />
           <Property Name="Mal_Sahibi_Ad_Soyad" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Yapi_Denetim_Firmasi_Id" Type="Int32" Nullable="false" />
           <Property Name="Muteahhit_Id" Type="Int32" Nullable="false" />

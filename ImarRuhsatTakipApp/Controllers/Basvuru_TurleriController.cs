@@ -17,8 +17,7 @@ namespace ImarRuhsatTakipApp.Controllers
         // GET: Basvuru_Turleri
         public ActionResult Index()
         {
-            var basvuru_Turleri = db.Basvuru_Turleri.Include(b => b.Sabitler);
-            return View(basvuru_Turleri.ToList());
+            return View(db.Basvuru_Turleri.ToList());
         }
 
         // GET: Basvuru_Turleri/Details/5
@@ -39,7 +38,6 @@ namespace ImarRuhsatTakipApp.Controllers
         // GET: Basvuru_Turleri/Create
         public ActionResult Create()
         {
-            ViewBag.Basvuru_Tur_Id = new SelectList(db.Sabitler, "Sabitler_Id", "Sorular");
             return View();
         }
 
@@ -48,7 +46,7 @@ namespace ImarRuhsatTakipApp.Controllers
         // daha fazla bilgi için https://go.microsoft.com/fwlink/?LinkId=317598 sayfasına bakın.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Basvuru_Tur_Id,Basvuru_Tur_Ad")] Basvuru_Turleri basvuru_Turleri)
+        public ActionResult Create([Bind(Include = "Id,Basvuru_Tur_Ad")] Basvuru_Turleri basvuru_Turleri)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +55,6 @@ namespace ImarRuhsatTakipApp.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Basvuru_Tur_Id = new SelectList(db.Sabitler, "Sabitler_Id", "Sorular", basvuru_Turleri.Id);
             return View(basvuru_Turleri);
         }
 
@@ -73,7 +70,6 @@ namespace ImarRuhsatTakipApp.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Basvuru_Tur_Id = new SelectList(db.Sabitler, "Sabitler_Id", "Sorular", basvuru_Turleri.Id);
             return View(basvuru_Turleri);
         }
 
@@ -82,7 +78,7 @@ namespace ImarRuhsatTakipApp.Controllers
         // daha fazla bilgi için https://go.microsoft.com/fwlink/?LinkId=317598 sayfasına bakın.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Basvuru_Tur_Id,Basvuru_Tur_Ad")] Basvuru_Turleri basvuru_Turleri)
+        public ActionResult Edit([Bind(Include = "Id,Basvuru_Tur_Ad")] Basvuru_Turleri basvuru_Turleri)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +86,6 @@ namespace ImarRuhsatTakipApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Basvuru_Tur_Id = new SelectList(db.Sabitler, "Sabitler_Id", "Sorular", basvuru_Turleri.Id);
             return View(basvuru_Turleri);
         }
 

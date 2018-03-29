@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Delete</h2>
@@ -28,14 +29,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Basvuru_Turleri_Id)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Basvuru_Turleri_Id)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.Basvuru_Turleri.Basvuru_Tur_Ad)
         </dt>
 
@@ -49,8 +42,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Sil" class="btn btn-danger" /> |
-            @Html.ActionLink("Geri Dön", "Index")
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
         </div>
     }
 </div>

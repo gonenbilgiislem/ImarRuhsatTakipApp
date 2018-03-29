@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Delete</h2>
@@ -19,22 +20,14 @@
             @Html.DisplayFor(model => model.Basvuru_Tur_Ad)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Sabitler.Sorular)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Sabitler.Sorular)
-        </dd>
-
     </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Sil" class="btn btn-danger" /> |
-            @Html.ActionLink("Geri Dön", "Index")
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
         </div>
     }
 </div>

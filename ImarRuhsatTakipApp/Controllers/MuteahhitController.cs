@@ -46,7 +46,7 @@ namespace ImarRuhsatTakipApp.Controllers
         // daha fazla bilgi için https://go.microsoft.com/fwlink/?LinkId=317598 sayfasına bakın.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Mutheahhit_Id,Mutheahhit_Ad_Soyad,Mutheahhit_Firma_Adi")] Muteahhit muteahhit)
+        public ActionResult Create([Bind(Include = "Id,Mutheahhit_Ad_Soyad,Mutheahhit_Firma_Adi")] Muteahhit muteahhit)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace ImarRuhsatTakipApp.Controllers
         // daha fazla bilgi için https://go.microsoft.com/fwlink/?LinkId=317598 sayfasına bakın.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Mutheahhit_Id,Mutheahhit_Ad_Soyad,Mutheahhit_Firma_Adi")] Muteahhit muteahhit)
+        public ActionResult Edit([Bind(Include = "Id,Mutheahhit_Ad_Soyad,Mutheahhit_Firma_Adi")] Muteahhit muteahhit)
         {
             if (ModelState.IsValid)
             {

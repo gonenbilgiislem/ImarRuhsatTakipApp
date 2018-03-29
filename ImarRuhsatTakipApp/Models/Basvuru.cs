@@ -16,7 +16,7 @@ namespace ImarRuhsatTakipApp.Models
     {
         public int Id { get; set; }
         public int Basvuru_Turleri_Id { get; set; }
-        public decimal Referans_kod { get; set; }
+        public long Referans_kod { get; set; }
         public string Mal_Sahibi_Ad_Soyad { get; set; }
         public int Yapi_Denetim_Firmasi_Id { get; set; }
         public int Muteahhit_Id { get; set; }

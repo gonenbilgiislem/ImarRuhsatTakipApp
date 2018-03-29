@@ -46,7 +46,7 @@ namespace ImarRuhsatTakipApp.Controllers
         // daha fazla bilgi için https://go.microsoft.com/fwlink/?LinkId=317598 sayfasına bakın.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Talep_Tip_Id,Talep_Tip_Ad")] Talep_Tipleri talep_Tipleri)
+        public ActionResult Create([Bind(Include = "Id,Talep_Tip_Ad")] Talep_Tipleri talep_Tipleri)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace ImarRuhsatTakipApp.Controllers
         // daha fazla bilgi için https://go.microsoft.com/fwlink/?LinkId=317598 sayfasına bakın.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Talep_Tip_Id,Talep_Tip_Ad")] Talep_Tipleri talep_Tipleri)
+        public ActionResult Edit([Bind(Include = "Id,Talep_Tip_Ad")] Talep_Tipleri talep_Tipleri)
         {
             if (ModelState.IsValid)
             {

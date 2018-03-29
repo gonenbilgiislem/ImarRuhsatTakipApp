@@ -208,6 +208,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="aaa.html" />
     <Content Include="Icerik\assets\DT_bootstrap.css" />
     <Content Include="Icerik\assets\DT_bootstrap.js" />
     <Content Include="Icerik\assets\form-validation.js" />
@@ -275,6 +276,7 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -1486,11 +1488,6 @@
     <Content Include="Views\Kullanicilar\Delete.cshtml" />
     <Content Include="Views\Kullanicilar\Edit.cshtml" />
     <Content Include="Views\Kullanicilar\Index.cshtml" />
-    <Content Include="Views\Basvuru_Turleri\Create.cshtml" />
-    <Content Include="Views\Basvuru_Turleri\Delete.cshtml" />
-    <Content Include="Views\Basvuru_Turleri\Details.cshtml" />
-    <Content Include="Views\Basvuru_Turleri\Edit.cshtml" />
-    <Content Include="Views\Basvuru_Turleri\Index.cshtml" />
     <Content Include="Views\Yapi_Denetim_Firmasi\Create.cshtml" />
     <Content Include="Views\Yapi_Denetim_Firmasi\Delete.cshtml" />
     <Content Include="Views\Yapi_Denetim_Firmasi\Details.cshtml" />
@@ -1537,6 +1534,11 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Basvuru_Turleri\Create.cshtml" />
+    <Content Include="Views\Basvuru_Turleri\Delete.cshtml" />
+    <Content Include="Views\Basvuru_Turleri\Details.cshtml" />
+    <Content Include="Views\Basvuru_Turleri\Edit.cshtml" />
+    <Content Include="Views\Basvuru_Turleri\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
