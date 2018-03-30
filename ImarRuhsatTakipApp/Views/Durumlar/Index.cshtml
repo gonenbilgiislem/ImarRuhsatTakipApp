@@ -7,6 +7,29 @@
 
 <h2>Index</h2>
 
+
+<div class="row-fluid">
+    <!-- block -->
+    <div class="block">
+        <div class="navbar navbar-inner block-header">
+            <div class="muted pull-left">Kullanıcı Ekle</div>
+        </div>
+        <div class="block-content collapse in">
+            <div class="span12">
+                <div class="table-toolbar">
+                    <div class="btn-group">
+                        <a href="@Url.Action("Create","Durumlar")" button class="btn btn-success">Ekle <i class="icon-plus icon-white"></i></a>
+                    </div>
+                    <div class="btn-group pull-right">
+                        <button data-toggle="dropdown" class="btn dropdown-toggle">Araçlar <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Yazdır</a></li>
+                            <li><a href="#">PDF Kaydet</a></li>
+                            <li><a href="#">Excele Kaydet</a></li>
+                        </ul>
+                    </div>
+                </div>
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>

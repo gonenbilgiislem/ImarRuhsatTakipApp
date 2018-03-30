@@ -41,13 +41,13 @@
                         @foreach (var item in Model)
 
     {
-                    <tr class="even gradeC">
+                    <tr>
                         <td>
                             @Html.DisplayFor(modelItem => item.Kullanici_Ad_Soyad)
                         </td>
                         <td>
                             <a href="@Url.Action("Edit","Kullanicilar",new {id = item.Id })" button class="btn btn-info btn-lg"> <i class="glyphicon glyphicon-pencil"></i>Düzenle</a>
-                            
+
                             <a href="@Url.Action("Delete","Kullanicilar",new {id = item.Id })" button class="btn btn-danger btn-lg"> <i class="glyphicon glyphicon-pencil"></i>Sil</a>
                         </td>
                     </tr>

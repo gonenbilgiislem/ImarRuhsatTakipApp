@@ -276,6 +276,15 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="CodeTemplates\MvcControllerWithContext\Controller.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\Create.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\Delete.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\Details.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\Edit.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\Empty.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\Imports.include.t4" />
+    <Content Include="CodeTemplates\MvcView\List.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\ModelMetadataFunctions.cs.include.t4" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -1507,7 +1516,6 @@
     <Content Include="Views\Durumlar\Delete.cshtml" />
     <Content Include="Views\Durumlar\Details.cshtml" />
     <Content Include="Views\Durumlar\Edit.cshtml" />
-    <Content Include="Views\Durumlar\Index.cshtml" />
     <Content Include="Views\Yetkiler\Create.cshtml" />
     <Content Include="Views\Yetkiler\Delete.cshtml" />
     <Content Include="Views\Yetkiler\Details.cshtml" />
@@ -1522,7 +1530,7 @@
     <Content Include="Views\Basvuru\Delete.cshtml" />
     <Content Include="Views\Basvuru\Details.cshtml" />
     <Content Include="Views\Basvuru\Edit.cshtml" />
-    <Content Include="Views\Basvuru\Index.cshtml" />
+    <Content Include="Views\Basvuru\Index_YEDEK.cshtml" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Scripts\umd\popper.min.js.map" />
@@ -1539,6 +1547,8 @@
     <Content Include="Views\Basvuru_Turleri\Details.cshtml" />
     <Content Include="Views\Basvuru_Turleri\Edit.cshtml" />
     <Content Include="Views\Basvuru_Turleri\Index.cshtml" />
+    <Content Include="Views\Durumlar\Index.cshtml" />
+    <Content Include="Views\Basvuru\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
