@@ -12,7 +12,7 @@
 
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.Id)
-
+    <br>
     <div class="row-fluid">
         <!-- block -->
         <div class="block">
@@ -25,9 +25,6 @@
                         <div class="btn-group">
                         </div>
                     </div>
-
-
-
 
                     <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example1">
                         <thead>
@@ -49,23 +46,31 @@
                                     @Html.EditorFor(model => model.Sifre, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.Sifre, "", new { @class = "text-danger" })
                                 </td>
-
-
                             </tr>
                         </tbody>
                     </table>
-                  </div>
-                <div class="container container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <a href="#schedule" class="btn btn-outline-primary">Schedule</a>
 
-                            <a class="btn btn-primary" href="#register">Register</a>
-                        </div>
-                    </div>
+                    <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+                        <tbody>
+                            <tr>
+                               <td>
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="icon-ok icon-white"></i> Kaydet</button>
+                                </td>
+                                <td align="right">
+                                    <a href="@Url.Action("Index","Kullanicilar")" button class="btn btn-info"> <i class="icon-hand-left icon-white"></i> Geri Dön</a>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+
+
                 </div>
             </div>
         </div>
     </div>
-}
 
+}
+    

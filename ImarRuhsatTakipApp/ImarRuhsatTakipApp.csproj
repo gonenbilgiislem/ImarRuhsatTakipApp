@@ -1496,7 +1496,6 @@
     <Content Include="Views\Kullanicilar\Create.cshtml" />
     <Content Include="Views\Kullanicilar\Delete.cshtml" />
     <Content Include="Views\Kullanicilar\Edit.cshtml" />
-    <Content Include="Views\Kullanicilar\Index.cshtml" />
     <Content Include="Views\Yapi_Denetim_Firmasi\Create.cshtml" />
     <Content Include="Views\Yapi_Denetim_Firmasi\Delete.cshtml" />
     <Content Include="Views\Yapi_Denetim_Firmasi\Details.cshtml" />
@@ -1530,7 +1529,6 @@
     <Content Include="Views\Basvuru\Delete.cshtml" />
     <Content Include="Views\Basvuru\Details.cshtml" />
     <Content Include="Views\Basvuru\Edit.cshtml" />
-    <Content Include="Views\Basvuru\Index_YEDEK.cshtml" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Scripts\umd\popper.min.js.map" />
@@ -1549,6 +1547,7 @@
     <Content Include="Views\Basvuru_Turleri\Index.cshtml" />
     <Content Include="Views\Durumlar\Index.cshtml" />
     <Content Include="Views\Basvuru\Index.cshtml" />
+    <Content Include="Views\Kullanicilar\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
