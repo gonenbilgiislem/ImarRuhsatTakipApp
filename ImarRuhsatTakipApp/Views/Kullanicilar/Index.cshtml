@@ -4,9 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<hr>
-
-<br>
+<br/>
 <div class="row-fluid">
     <!-- block -->
     <div class="block">
@@ -54,7 +52,7 @@
                                 </td>
                                 <td>
                                     <a href="@Url.Action("Edit","Kullanicilar",new {id = item.Id })" button class="btn btn-info"> <i class="icon-pencil icon-white" title="Kaydı Düzenle"></i></a>
-                                    <a href="@Url.Action("Delete","Kullanicilar",new {id = item.Id })" button class="btn btn-danger"> <i class="icon-warning-sign icon-white" title="Kaydı Sil"></i></a>
+                                    <a href="@Url.Action("Delete","Kullanicilar",new {id = item.Id })" button class="btn btn-danger"> <i class="icon-remove icon-white" title="Kaydı Sil"></i></a>
                                 </td>
                             </tr>
                         }

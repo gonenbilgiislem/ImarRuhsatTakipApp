@@ -2,110 +2,226 @@
 
 @{
     ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Create</h2>
+<br/>
 
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>Basvuru</h4>
-        <hr />
+  
+      
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example1">
+					<thead>
+						<tr>
+							<th>
         <div class="form-group">
-            @Html.LabelFor(model => model.Basvuru_Turleri_Id, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.Basvuru_Turleri_Id, "Basvuru_Turleri_Id", htmlAttributes: new { @class = "control-label col-md-2" })
+           </th>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
                 @Html.DropDownList("Basvuru_Turleri_Id", null, htmlAttributes: new { @class = "form-control" })
+
                 @Html.ValidationMessageFor(model => model.Basvuru_Turleri_Id, "", new { @class = "text-danger" })
             </div>
         </div>
 
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example1">
+					<thead>
+						<tr>
+							<th>
         <div class="form-group">
             @Html.LabelFor(model => model.Referans_kod, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+           </th>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
                 @Html.EditorFor(model => model.Referans_kod, new { htmlAttributes = new { @class = "form-control" } })
+
                 @Html.ValidationMessageFor(model => model.Referans_kod, "", new { @class = "text-danger" })
             </div>
         </div>
 
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example1">
+					<thead>
+						<tr>
+							<th>
         <div class="form-group">
             @Html.LabelFor(model => model.Mal_Sahibi_Ad_Soyad, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+           </th>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
                 @Html.EditorFor(model => model.Mal_Sahibi_Ad_Soyad, new { htmlAttributes = new { @class = "form-control" } })
+
                 @Html.ValidationMessageFor(model => model.Mal_Sahibi_Ad_Soyad, "", new { @class = "text-danger" })
             </div>
         </div>
 
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example1">
+					<thead>
+						<tr>
+							<th>
         <div class="form-group">
-            @Html.LabelFor(model => model.Yapi_Denetim_Firmasi_Id, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.Yapi_Denetim_Firmasi_Id, "Yapi_Denetim_Firmasi_Id", htmlAttributes: new { @class = "control-label col-md-2" })
+           </th>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
                 @Html.DropDownList("Yapi_Denetim_Firmasi_Id", null, htmlAttributes: new { @class = "form-control" })
+
                 @Html.ValidationMessageFor(model => model.Yapi_Denetim_Firmasi_Id, "", new { @class = "text-danger" })
             </div>
         </div>
 
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example1">
+					<thead>
+						<tr>
+							<th>
         <div class="form-group">
-            @Html.LabelFor(model => model.Muteahhit_Id,  htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.Muteahhit_Id, "Muteahhit_Id", htmlAttributes: new { @class = "control-label col-md-2" })
+           </th>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
                 @Html.DropDownList("Muteahhit_Id", null, htmlAttributes: new { @class = "form-control" })
+
                 @Html.ValidationMessageFor(model => model.Muteahhit_Id, "", new { @class = "text-danger" })
             </div>
         </div>
 
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example1">
+					<thead>
+						<tr>
+							<th>
         <div class="form-group">
-            @Html.LabelFor(model => model.Talep_Tipleri_Id, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.Talep_Tipleri_Id, "Talep_Tipleri_Id", htmlAttributes: new { @class = "control-label col-md-2" })
+           </th>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
                 @Html.DropDownList("Talep_Tipleri_Id", null, htmlAttributes: new { @class = "form-control" })
+
                 @Html.ValidationMessageFor(model => model.Talep_Tipleri_Id, "", new { @class = "text-danger" })
             </div>
         </div>
 
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example1">
+					<thead>
+						<tr>
+							<th>
         <div class="form-group">
-            @Html.LabelFor(model => model.Durum_Id,  htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.Durum_Id, "Durum_Id", htmlAttributes: new { @class = "control-label col-md-2" })
+           </th>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
                 @Html.DropDownList("Durum_Id", null, htmlAttributes: new { @class = "form-control" })
+
                 @Html.ValidationMessageFor(model => model.Durum_Id, "", new { @class = "text-danger" })
             </div>
         </div>
 
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example1">
+					<thead>
+						<tr>
+							<th>
         <div class="form-group">
             @Html.LabelFor(model => model.Aciklama, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+           </th>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
                 @Html.EditorFor(model => model.Aciklama, new { htmlAttributes = new { @class = "form-control" } })
+
                 @Html.ValidationMessageFor(model => model.Aciklama, "", new { @class = "text-danger" })
             </div>
         </div>
 
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example1">
+					<thead>
+						<tr>
+							<th>
         <div class="form-group">
-            @Html.LabelFor(model => model.Kullanicilar_Id,  htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.Kullanicilar_Id, "Kullanicilar_Id", htmlAttributes: new { @class = "control-label col-md-2" })
+           </th>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
                 @Html.DropDownList("Kullanicilar_Id", null, htmlAttributes: new { @class = "form-control" })
+
                 @Html.ValidationMessageFor(model => model.Kullanicilar_Id, "", new { @class = "text-danger" })
             </div>
         </div>
 
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example1">
+					<thead>
+						<tr>
+							<th>
         <div class="form-group">
             @Html.LabelFor(model => model.Dilekce_Tarihi, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+           </th>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
                 @Html.EditorFor(model => model.Dilekce_Tarihi, new { htmlAttributes = new { @class = "form-control" } })
+
                 @Html.ValidationMessageFor(model => model.Dilekce_Tarihi, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+						<tbody>
+							<tr>
+								<td>
+                <button type="submit" class="btn btn-success">
+				<i class="icon-ok icon-white"></i> Kaydet
+									</button>
+								</td>
+								<td align="right">
+								<a href="@Url.Action("Index","Kullanicilar")" button class="btn btn-info"> <i class="icon-hand-left icon-white"></i> Geri Dön</a>
+								</td>
+							</tr>
+							
+							
+						</tbody>
+					</table>
 }
+        	</div>
+			</div>
+		</div>
+	</div>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

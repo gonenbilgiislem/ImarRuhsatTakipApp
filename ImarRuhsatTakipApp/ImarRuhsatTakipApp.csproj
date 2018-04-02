@@ -1525,7 +1525,6 @@
     <Content Include="Views\Sabitler\Details.cshtml" />
     <Content Include="Views\Sabitler\Edit.cshtml" />
     <Content Include="Views\Sabitler\Index.cshtml" />
-    <Content Include="Views\Basvuru\Create.cshtml" />
     <Content Include="Views\Basvuru\Delete.cshtml" />
     <Content Include="Views\Basvuru\Details.cshtml" />
     <Content Include="Views\Basvuru\Edit.cshtml" />
@@ -1548,6 +1547,7 @@
     <Content Include="Views\Durumlar\Index.cshtml" />
     <Content Include="Views\Basvuru\Index.cshtml" />
     <Content Include="Views\Kullanicilar\Index.cshtml" />
+    <Content Include="Views\Basvuru\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

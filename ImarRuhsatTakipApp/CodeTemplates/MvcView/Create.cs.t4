@@ -25,8 +25,7 @@ if (!String.IsNullOrEmpty(LayoutPageFile)) {
 }
 #>
 }
-
-<h2><#= ViewName#></h2>
+<br/>
 
 <#
 } else {
@@ -44,6 +43,19 @@ if (!String.IsNullOrEmpty(LayoutPageFile)) {
     <title><#= ViewName #></title>
 </head>
 <body>
+<br />
+<div class="row-fluid">
+    <!-- block -->
+    <div class="block">
+        <div class="navbar navbar-inner block-header">
+            <div class="muted pull-left">Kullanıcı Ekle</div>
+		</div>
+        <div class="block-content collapse in">
+            <div class="span12">
+                <div class="table-toolbar">
+                    <div class="btn-group">
+					</div>
+				</div>
 <#
     PushIndent("    ");
 }
@@ -78,9 +90,8 @@ if (ReferenceScriptLibraries) {
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4><#= ViewDataTypeShortName #></h4>
-        <hr />
+  
+      
 <# 
     if (isControlHtmlAttributesSupported) {
 #>
@@ -102,6 +113,11 @@ foreach (PropertyMetadata property in ModelMetadata.Properties) {
         }
 
 #>
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example1">
+					<thead>
+						<tr>
+							<th>
         <div class="form-group">
 <#
         if (property.IsForeignKey) {
@@ -114,7 +130,11 @@ foreach (PropertyMetadata property in ModelMetadata.Properties) {
 <#
         }
 #>
-            <div class="col-md-10">
+           </th>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
 <#
         bool isCheckbox = property.TypeName.Equals(boolType);
         if (property.IsForeignKey) {
@@ -155,6 +175,7 @@ foreach (PropertyMetadata property in ModelMetadata.Properties) {
 <#
         }
 #>
+
 <# 
         if (isControlHtmlAttributesSupported) {
 #>
@@ -181,17 +202,34 @@ foreach (PropertyMetadata property in ModelMetadata.Properties) {
     }
 }
 #>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+						<tbody>
+							<tr>
+								<td>
+                <button type="submit" class="btn btn-success">
+				<i class="icon-ok icon-white"></i> Kaydet
+									</button>
+								</td>
+								<td align="right">
+								<a href="@Url.Action("Index","Kullanicilar")" button class="btn btn-info"> <i class="icon-hand-left icon-white"></i> Geri Dön</a>
+								</td>
+							</tr>
+							
+							
+						</tbody>
+					</table>
 }
+        	</div>
+			</div>
+		</div>
+	</div>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
+
 <#
 if(IsLayoutPageSelected && ReferenceScriptLibraries && IsBundleConfigPresent) {
 #>
