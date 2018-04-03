@@ -1,224 +1,35 @@
-﻿@model ImarRuhsatTakipApp.Models.Basvuru
+﻿$(function() {
 
-@{
-    ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-<br/>
+    $("#jsGrid").jsGrid({
+        height: "90%",
+        width: "100%",
 
+        filtering: true,
+        editing: true,
+        sorting: true,
+        paging: true,
+        autoload: true,
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-  
-      
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        pageSize: 15,
+        pageButtonCount: 5,
 
-<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example1">
-					<thead>
-						<tr>
-							<th>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Basvuru_Turleri_Id, "Basvuru_Turleri_Id", htmlAttributes: new { @class = "control-label col-md-2" })
-           </th>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-                @Html.DropDownList("Basvuru_Turleri_Id", null, htmlAttributes: new { @class = "form-control" })
+        deleteConfirm: "Do you really want to delete the client?",
 
-                @Html.ValidationMessageFor(model => model.Basvuru_Turleri_Id, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        controller: db,
+
+        fields: [
+            { name: "Name", type: "text", width: 150 },
+            { name: "Age", type: "number", width: 50 },
+            { name: "Address", type: "text", width: 200 },
+            { name: "Country", type: "select", items: db.countries, valueField: "Id", textField: "Name" },
+            { name: "Married", type: "checkbox", title: "Is Married", sorting: false },
+            { type: "control" }
+        ]
+    });
+
+});
 
 
-<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example1">
-					<thead>
-						<tr>
-							<th>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Referans_kod, htmlAttributes: new { @class = "control-label col-md-2" })
-           </th>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-                @Html.EditorFor(model => model.Referans_kod, new { htmlAttributes = new { @class = "form-control" } })
-
-                @Html.ValidationMessageFor(model => model.Referans_kod, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-
-<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example1">
-					<thead>
-						<tr>
-							<th>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Mal_Sahibi_Ad_Soyad, htmlAttributes: new { @class = "control-label col-md-2" })
-           </th>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-                @Html.EditorFor(model => model.Mal_Sahibi_Ad_Soyad, new { htmlAttributes = new { @class = "form-control" } })
-
-                @Html.ValidationMessageFor(model => model.Mal_Sahibi_Ad_Soyad, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-
-<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example1">
-					<thead>
-						<tr>
-							<th>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Yapi_Denetim_Firmasi_Id, "Yapi_Denetim_Firmasi_Id", htmlAttributes: new { @class = "control-label col-md-2" })
-           </th>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-                @Html.DropDownList("Yapi_Denetim_Firmasi_Id", null, htmlAttributes: new { @class = "form-control" })
-
-                @Html.ValidationMessageFor(model => model.Yapi_Denetim_Firmasi_Id, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-
-<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example1">
-					<thead>
-						<tr>
-							<th>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Muteahhit_Id, "Muteahhit_Id", htmlAttributes: new { @class = "control-label col-md-2" })
-           </th>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-                @Html.DropDownList("Muteahhit_Id", null, htmlAttributes: new { @class = "form-control" })
-
-                @Html.ValidationMessageFor(model => model.Muteahhit_Id, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-
-<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example1">
-					<thead>
-						<tr>
-							<th>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Talep_Tipleri_Id, "Talep_Tipleri_Id", htmlAttributes: new { @class = "control-label col-md-2" })
-           </th>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-                @Html.DropDownList("Talep_Tipleri_Id", null, htmlAttributes: new { @class = "form-control" })
-
-                @Html.ValidationMessageFor(model => model.Talep_Tipleri_Id, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-
-<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example1">
-					<thead>
-						<tr>
-							<th>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Durum_Id, "Durum_Id", htmlAttributes: new { @class = "control-label col-md-2" })
-           </th>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-                @Html.DropDownList("Durum_Id", null, htmlAttributes: new { @class = "form-control" })
-
-                @Html.ValidationMessageFor(model => model.Durum_Id, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-
-<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example1">
-					<thead>
-						<tr>
-							<th>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Aciklama, htmlAttributes: new { @class = "control-label col-md-2" })
-           </th>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-                @Html.EditorFor(model => model.Aciklama, new { htmlAttributes = new { @class = "form-control" } })
-
-                @Html.ValidationMessageFor(model => model.Aciklama, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-
-<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example1">
-					<thead>
-						<tr>
-							<th>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Kullanicilar_Id, "Kullanicilar_Id", htmlAttributes: new { @class = "control-label col-md-2" })
-           </th>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-                @Html.DropDownList("Kullanicilar_Id", null, htmlAttributes: new { @class = "form-control" })
-
-                @Html.ValidationMessageFor(model => model.Kullanicilar_Id, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-
-<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example1">
-					<thead>
-						<tr>
-							<th>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Dilekce_Tarihi, htmlAttributes: new { @class = "control-label col-md-2" })
-           </th>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-                @Html.EditorFor(model => model.Dilekce_Tarihi, new { htmlAttributes = new { @class = "form-control" } })
-
-                @Html.ValidationMessageFor(model => model.Dilekce_Tarihi, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-						<tbody>
-							<tr>
-								<td>
-                <button type="submit" class="btn btn-success">
-				<i class="icon-ok icon-white"></i> Kaydet
-									</button>
-								</td>
-								<td align="right">
-								<a href="@Url.Action("Index","Kullanicilar")" button class="btn btn-info"> <i class="icon-hand-left icon-white"></i> Geri Dön</a>
-								</td>
-							</tr>
-							
-							
-						</tbody>
-					</table>
-}
-        	</div>
-			</div>
-		</div>
-	</div>
 
 
 
