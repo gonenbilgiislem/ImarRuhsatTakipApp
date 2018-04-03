@@ -4,12 +4,9 @@
     ViewBag.Title = "Edit";
 }
 
-
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.Id)
     <br>
@@ -53,24 +50,19 @@
                     <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
                         <tbody>
                             <tr>
-                               <td>
+                                <td>
                                     <button type="submit" class="btn btn-success">
-                                        <i class="icon-ok icon-white"></i> Kaydet</button>
+                                        <i class="icon-ok icon-white"></i> Kaydet
+                                    </button>
                                 </td>
                                 <td align="right">
                                     <a href="@Url.Action("Index","Kullanicilar")" button class="btn btn-info"> <i class="icon-hand-left icon-white"></i> Geri Dön</a>
                                 </td>
                             </tr>
-
-
                         </tbody>
                     </table>
-
-
                 </div>
             </div>
         </div>
     </div>
-
 }
-    
